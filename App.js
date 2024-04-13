@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 var mustacheExpress = require("mustache-express");
 var engine = mustacheExpress()
 app.engine("mustache", engine);
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "mustache");
 
 //Cookies
@@ -28,7 +28,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
-app.use("/", require('./src/controllers/main'))
+app.use("/", require('./src/routes/index'))
 
 app.listen(process.env.PORT, () => {
     console.log("Running...")
