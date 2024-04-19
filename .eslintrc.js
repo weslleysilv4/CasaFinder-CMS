@@ -7,7 +7,7 @@ export default [
         'prettier/prettier': 'error',
         'react/jsx-filename-extension': [
         'warn',
-        {extensions: ['.js', '.jsx']}
+        {extensions: ['.js', '.mustache']}
         ],
         'import/prefer-default-export': 'off',
         'jsx-quotes': ['error', 'prefer-single']
