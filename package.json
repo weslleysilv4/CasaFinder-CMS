@@ -4,7 +4,7 @@
   "description": "CMS made for Web Dev Class at UTFPR",
   "main": "App.js",
   "scripts": {
-    "start": "nodemon -e mustache,js App.js"
+    "start": "nodemon --ext js,html,mustache,ejs,css,scss, app.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +13,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mustache-express": "^1.3.2",
-    "nodemon": "^2.0.14"
+    "mustache-express": "^1.3.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.0.2",
@@ -29,6 +28,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "globals": "^15.0.0",
+    "nodemon": "^3.1.0",
     "prettier": "^3.2.5"
   }
 }
