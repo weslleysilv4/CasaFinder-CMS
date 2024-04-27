@@ -5,5 +5,5 @@
   transition: all 0.4s;
 }
 .card:hover{
-  transform: scale(1.05);
+  transform: scale(1.02);
 }

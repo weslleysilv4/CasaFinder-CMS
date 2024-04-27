@@ -31,5 +31,5 @@ app.use(session({
 app.use("/", require('./src/routes/index'))
 
 app.listen(process.env.PORT, () => {
-    console.log(`Running on PORT: ${process.env.PORT} ✅`)
+    console.log(`Running on: http://localhost:${process.env.PORT} ✅`)
 })
