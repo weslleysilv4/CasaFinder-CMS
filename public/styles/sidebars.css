@@ -14,3 +14,7 @@ main {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+.nav-link:hover {
+  background-color: #0e42ff;
+}
