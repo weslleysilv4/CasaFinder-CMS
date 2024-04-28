@@ -1,7 +1,7 @@
 let flag = false;
 
 module.exports = {
-    isLogged: (req, res, next) => {
+    checkLogin: (req, res, next) => {
         if (req.session.user) {
             flag = true;
             return next();
@@ -11,5 +11,5 @@ module.exports = {
         res.redirect("/");
     },
 
-    Logged: () => { return flag }
+    isLogged: () => { return flag }
 }
