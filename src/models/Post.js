@@ -6,6 +6,7 @@ export class Post {
     #createdBy
     #createdAt;
     #address;
+    #img;
     #url;
 
     constructor(Post) {
@@ -15,7 +16,8 @@ export class Post {
         this.#value = Post.value;
         this.#createdBy = Post.value;
         this.#createdAt = this.DataFormat(new Date());
-        this.#address = Post.adress;
+        this.#address = Post.address;
+        this.#img = Post.img;
         this.#url = Post.url;
     }
 
@@ -26,6 +28,7 @@ export class Post {
     get author() { return this.#createdBy };
     get creationDate() { return this.#createdAt };
     get address() { return this.#address };
+    get postImg() { return this.#img };
 
     calculateId() {
         return Math.floor(Math.random() * 90000) + 10000;

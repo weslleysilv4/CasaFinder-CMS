@@ -14,7 +14,7 @@ login = (req, res, next) => {
 }
 
 // Cria o cookie de "lembrar-me" do usuário.
-let salvaUsuario = (req, res, next) => {
+const salvaUsuario = (req, res, next) => {
     if (req.body.rememberUser) {
         res.cookie("email", req.body.email, {maxAge: 7 * 24 * 60 * 60 * 1000})
     } else {
@@ -24,7 +24,7 @@ let salvaUsuario = (req, res, next) => {
     return next()
 }
 
-let logout = (req, res, next) => {
+const logout = (req, res, next) => {
     req.session.user = null;
     res.redirect("/")
 }
