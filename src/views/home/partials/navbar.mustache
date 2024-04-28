@@ -17,12 +17,12 @@
               <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
             </li>
             {{! Login button }}
-            <li class="nav-item" {{#loginButton}}{{.}}{{/loginButton}}>
+            <li class="nav-item" {{loginButton}}>
               <a class="nav-link text-white" href="/login">Login</a>
             </li>
             {{! Dashboard }}
             <li class="nav-item">
-              <a class="nav-link text-white" href="/admin">Dashboard</a>
+              <a class="nav-link text-white" href="/admin" {{dashboard}}>Dashboard</a>
             </li>
 
             {{! Residências }}
