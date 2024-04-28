@@ -1,6 +1,9 @@
 //Requires gerais
 const path = require("path")
 require("dotenv").config()
+const indexRouter = require('./src/routes/index');
+const loginRouter = require('./src/controllers/login');
+const adminRouter = require('./src/routes/admin');
 
 //Express
 const express = require('express')
@@ -21,15 +24,27 @@ const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
 //Sessão
-const session = require("express-session")
+const session = require("express-session");
+const { log } = require("console");
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
 
-app.use("/", require('./src/routes/index'))
+app.use("/", indexRouter);
+app.use("/", adminRouter);
+app.use("/", loginRouter);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Running on: http://localhost:${process.env.PORT} ✅`)
-})
+//Error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+  
+module.exports = app;
