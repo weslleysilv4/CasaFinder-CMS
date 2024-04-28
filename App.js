@@ -2,7 +2,7 @@
 const path = require("path")
 require("dotenv").config()
 const indexRouter = require('./src/routes/index');
-const loginRouter = require('./src/controllers/login');
+const loginRouter = require('./src/routes/login');
 const adminRouter = require('./src/routes/admin');
 
 //Express

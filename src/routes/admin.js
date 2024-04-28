@@ -3,7 +3,6 @@ const router = express.Router();
 const Acess = require('../controllers/Acess');
 
 router.get("/admin", Acess.checkLogin, (req,res) => {
-    console.log(Acess.isLogged());
     res.render("admin/index")
 })
 

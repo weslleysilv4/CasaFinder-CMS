@@ -6,6 +6,8 @@ module.exports = {
      * @returns boolean 
      */
     isAdmin: (Admin) => {
+        if(!Admin) return false;
+
         return Admin.email == process.env.ADMIN_EMAIL
         && Admin.password == process.env.ADMIN_PASSWORD
     }

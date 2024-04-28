@@ -1,3 +1,4 @@
+const Admin = require('../models/Admin');
 let flag = false;
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
         res.redirect("/");
     },
 
-    isLogged: () => { return flag }
+    isLogged: () => { return flag },
+    isAdmin: (userProps) => { return Admin.isAdmin(userProps) }
 }
