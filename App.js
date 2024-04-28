@@ -2,6 +2,7 @@
 const path = require("path")
 require("dotenv").config()
 const indexRouter = require('./src/routes/index');
+const loginRouter = require('./src/controllers/login');
 
 //Express
 const express = require('express')
@@ -22,7 +23,8 @@ const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 
 //Sessão
-const session = require("express-session")
+const session = require("express-session");
+const { log } = require("console");
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -30,6 +32,7 @@ app.use(session({
 }));
 
 app.use("/", indexRouter);
+app.use("/", loginRouter);
 
 //Error handler
 app.use(function(err, req, res, next) {

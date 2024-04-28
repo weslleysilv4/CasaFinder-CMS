@@ -1,17 +1,24 @@
 const express = require('express')
 const router = express.Router()
+const Acess = require("../controllers/Acess");
 
 router.get("/", (req, res) => {
-    res.render("home/index")
+    console.log(Acess.Logged());
+    if(Acess.Logged()) {
+        res.render("home/index", {
+            loginButton: "hidden"
+        })
+        return;      
+    }
+
+    res.render("home/index");  
 })
 
 router.get("/login", (req, res) => {
     res.render("login/index")
 })
 
-router.get("/admin", (req,res) => {
-    //TODO: Verificar se o usuário está autenticado (exemplo: req.isAuthenticated())
-    // Exemplo - deve ser definido com base na autenticação real
+router.get("/admin", Acess.isLogged, (req,res) => {
     res.render("admin/index")
 })
 
