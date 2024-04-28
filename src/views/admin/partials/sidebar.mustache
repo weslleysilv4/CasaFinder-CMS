@@ -8,7 +8,7 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="/admin" class="nav-link active" aria-current="page">
+          <a href="/admin" class="nav-link text-white" onClick={} aria-current="page">
             <i class="bi bi-house me-2" width="16" height="16" style="color: white"></i>
             Home
           </a>
@@ -47,3 +47,16 @@
         </ul>
     </div>
   </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+      // Captura o evento de clique nos links da barra lateral
+      $('.nav-link').click(function() {
+      // Remove a classe 'active' de todos os links da barra lateral
+      $('.nav-link').removeClass('active');
+      // Adiciona a classe 'active' apenas ao link clicado
+      $(this).addClass('active');
+      });
+      console.log("teste")
+    });
+    </script>
