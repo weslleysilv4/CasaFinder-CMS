@@ -1,5 +1,6 @@
 {{>login/partials/head}}
 <body class="d-flex align-items-center min-vw-100 min-vh-100 bg-dark bg-secondary">
+
   <main class="form-signin m-auto">
   
     <form action="/login" method="POST">
@@ -12,6 +13,17 @@
       {{! Endereço de Email }}
       <div class="form-floating">
         <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+
+  <main class="form-signin m-auto w-25">
+    <form action="/login" method="POST">
+      <div class="container-md-auto d-flex justify-content-center align-items-center gap-2">
+        <img class="mb-4" src="assets/logo/frog-logo.svg" alt="Logo Image" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal text-white">Entrar</h1>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput">
+
         <label for="floatingInput">Endereço de e-mail</label>
       </div>
 
