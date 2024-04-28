@@ -1,6 +1,7 @@
 //Requires gerais
 const path = require("path")
 require("dotenv").config()
+const indexRouter = require('./src/routes/index');
 
 //Express
 const express = require('express')
@@ -28,8 +29,17 @@ app.use(session({
     saveUninitialized: false
 }));
 
-app.use("/", require('./src/routes/index'))
+app.use("/", indexRouter);
 
-app.listen(process.env.PORT, () => {
-    console.log(`Running on: http://localhost:${process.env.PORT} ✅`)
-})
+//Error handler
+app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+  
+module.exports = app;

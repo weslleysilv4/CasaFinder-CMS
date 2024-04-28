@@ -4,7 +4,7 @@
   "description": "CMS made for Web Dev Class at UTFPR",
   "main": "App.js",
   "scripts": {
-    "start": "nodemon --ext js,html,mustache,ejs,css,scss, app.js"
+    "start": "nodemon --ext js,html,mustache,ejs,css,scss, ./bin/www"
   },
   "author": "",
   "license": "ISC",

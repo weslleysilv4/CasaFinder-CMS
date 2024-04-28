@@ -11,7 +11,7 @@ router.get("/login", (req, res) => {
 
 router.get("/admin", (req,res) => {
     //TODO: Verificar se o usuário está autenticado (exemplo: req.isAuthenticated())
-    // Exemplo - deve ser definido com base na autenticação rea
+    // Exemplo - deve ser definido com base na autenticação real
     res.render("admin/index")
 })
 
