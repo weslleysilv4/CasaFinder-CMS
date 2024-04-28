@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Admin = require('../models/Admin');
+const Acess = require('../controllers/Acess');
 
 login = (req, res, next) => {
     if(Admin.isAdmin(req.body)) {
@@ -26,6 +27,7 @@ let salvaUsuario = (req, res, next) => {
 
 let logout = (req, res, next) => {
     req.session.user = null;
+    Acess.userLogout();
     res.redirect("/")
 }
 

@@ -2,6 +2,8 @@ const { v4: uuidv4 } = require('uuid');
 
 export class User {
     #uuid;
+    #name;
+    #surname;
     #username;
     #email;
     #password;
@@ -9,6 +11,8 @@ export class User {
 
     constructor(User) {
         this.#uuid = uuidv4();
+        this.#name = User.name;
+        this.#surname = User.surname;
         this.#username = User.username;
         this.#email = User.email;
         this.#password = User.password;
@@ -16,6 +20,8 @@ export class User {
     }
 
     get id() { return this.#uuid };
+    get name() { return this.#name };
+    get surname() { return this.#surname };
     get username() { return this.#username };
     get email() { return this.#email };
     get password() { return this.#password };

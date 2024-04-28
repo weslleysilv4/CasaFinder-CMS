@@ -13,5 +13,6 @@ module.exports = {
     },
 
     isLogged: () => { return flag },
-    isAdmin: (userProps) => { return Admin.isAdmin(userProps) }
+    isAdmin: (userProps) => { return Admin.isAdmin(userProps) },
+    userLogout: () => { flag = false }
 }

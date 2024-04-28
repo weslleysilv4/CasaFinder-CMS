@@ -3,6 +3,7 @@ const router = express.Router()
 const Acess = require("../controllers/Acess");
 
 router.get("/", (req, res) => {
+    console.log(Acess.isLogged());
     res.render("home/index", {
         loginButton: Acess.isLogged() ? "hidden" : "",
         dashboard: Acess.isAdmin(req.session.user) ? "" : "hidden"
