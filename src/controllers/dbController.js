@@ -24,5 +24,12 @@ module.exports = {
     getJSON: async (Path) => {
         const fileContent = fs.readFileSync(Path, 'utf-8');
         return JSON.parse(fileContent);
-    }  
+    },
+    
+    getMap: async (Path) => {
+        const jsonContent = await this.getJSON(Path);
+        const map = new Map();
+        jsonContent.forEach(user => map.set(user.id, user));
+        return map;
+    }
 }
