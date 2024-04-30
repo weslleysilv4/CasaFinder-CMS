@@ -3,8 +3,8 @@ const path = require("path")
 require("dotenv").config()
 const indexRouter = require('./src/routes/index');
 const loginRouter = require('./src/routes/login');
-const signInRouter = require('./src/routes/signIn');
 const adminRouter = require('./src/routes/admin');
+const signUpRouter = require('./src/routes/signUp')
 
 //Express
 const express = require('express')
@@ -33,9 +33,9 @@ app.use(session({
 }));
 
 app.use("/", indexRouter);
-app.use("/", signInRouter);
 app.use("/", adminRouter);
 app.use("/", loginRouter);
+app.use("/", signUpRouter);
 
 //Error handler
 app.use(function(err, req, res, next) {

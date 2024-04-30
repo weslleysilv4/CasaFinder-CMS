@@ -17,4 +17,8 @@ router.get("/login", (req, res) => {
     res.redirect("/admin")
 })
 
+router.get("/cadastro", (req, res) => {
+    res.render("signup/index");
+});
+
 module.exports = router;

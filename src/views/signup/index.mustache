@@ -1,0 +1,60 @@
+{{>signup/partials/head}}
+<body class="d-flex align-items-center min-vw-100 min-vh-100 bg-dark bg-secondary">
+
+  <main class="form-signin m-auto w-25">
+    <form action="/cadastrar" method="POST" validate>
+      <div class="container-md-auto d-flex justify-content-center align-items-center gap-2">
+        {{! Logo }}
+        <img class="mb-4" src="assets/logo/frog-logo.svg" alt="Logo Image" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal text-white">Cadastro</h1>
+      </div>
+
+      {{! Nome }}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="name" id="floatingName" placeholder="Nome" required>
+        <label for="floatingName">Nome</label>
+      </div>
+
+      {{! Sobrenome }}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="surname" id="floatingSurname" placeholder="surname" required>
+        <label for="floatingSurname">Sobrenome</label>
+      </div>
+      
+      {{! Username }}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="username" id="floatingUsername" placeholder="username" required>
+        <label for="floatingUsername">Username</label>
+      </div>
+      
+      {{! Email }}
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" name="email" id="floatingEmail" placeholder="Email" required>
+        <label for="floatingEmail">Endereço de e-mail</label>
+      </div>
+
+      {{! Password }}
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">Senha</label>
+      </div>
+
+      {{! Termos }}
+      <div class="d-flex justify-content-between form-check text-start my-3">
+        <div>
+          <input class="form-check-input" type="checkbox" value="terms" id="flexCheckDefault" required>
+          <label class="form-check-label text-white" for="flexCheckDefault">
+          Concordo com os termos e condições
+        </div>
+        </label>
+        <a href="/login">Já possuo uma Conta!</a>
+      </div>
+
+      {{! Sign in button }}
+      <button class="btn btn-success w-100 py-2" type="submit">Sign Up</button>
+      <p class="mt-5 mb-3 text-center text-body-secondary">© 2017–2024</p>
+    </form>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
