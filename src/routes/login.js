@@ -4,19 +4,15 @@ const Admin = require('../models/Admin');
 const Acess = require('../controllers/acessController');
 const userController = require('../controllers/userController');
 
-login = (req, res, next) => {
+login = async (req, res, next) => {
     const userInput = req.body;
-    let userTarget;
-    userController.getUserByEmail(userInput.email).then((result) => {
-        userTarget = result;
-    })
+    const authentication = await authLogin(userInput);
 
-    console.log(userTarget);
-    console.log(userInput);
-    
-    // if(userTarget) {
-    //     if(userTarget.password)
-    // }
+    if(authentication) {
+        req.session.user = authentication;
+        res.redirect('/admin');
+        return next();
+    }
     
     if(Admin.isAdmin(userInput)) {
         req.session.user = userInput;
@@ -26,6 +22,13 @@ login = (req, res, next) => {
 
     req.session.messages = ["Erro ao realizar login!"];
     res.redirect("/login");
+}
+
+authLogin = async (userInput) => {
+    const userTarget = await userController.getUserByEmail(userInput.email);
+    return userTarget && userTarget.password === userInput.password
+     ? userTarget 
+     : undefined;
 }
 
 // Cria o cookie de "lembrar-me" do usuário.
@@ -41,7 +44,7 @@ const salvaUsuario = (req, res, next) => {
 
 const logout = (req, res, next) => {
     req.session.user = null;
-    Acess.userLogout();
+    Acess.changeUserCondition(false);
     res.redirect("/")
 }
 

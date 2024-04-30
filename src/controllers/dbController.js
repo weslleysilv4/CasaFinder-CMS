@@ -26,10 +26,10 @@ module.exports = {
         return JSON.parse(fileContent);
     },
     
-    getMap: async function(Path) {
+    getMap: async function(Path, keyField) {
         const jsonContent = await this.getJSON(Path);
         const map = new Map();
-        jsonContent.forEach(user => map.set(user.id, user));
+        jsonContent.forEach(user => map.set(user[keyField], user));
         return map;
     }
 }

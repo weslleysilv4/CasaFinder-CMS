@@ -9,14 +9,14 @@ module.exports = {
         dbController.addToDB(userJSON, DB_PATH);
     },
 
-    async getUserById(id) {
-        const usersMap = await dbController.getMap(DB_PATH);
-        return usersMap.get(id);
+    async getUserById(UserId) {
+        const usersMap = await dbController.getMap(DB_PATH, 'id');
+        return usersMap.get(UserId);
     },
 
-    async getUserByEmail(email) {
-        const usersMap = await dbController.getMap(DB_PATH);
-        return usersMap.get(email);
+    async getUserByEmail(UserEmail) {
+        const usersMap = await dbController.getMap(DB_PATH, 'email');
+        return usersMap.get(UserEmail);
     }
 }
 
