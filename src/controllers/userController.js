@@ -14,7 +14,7 @@ module.exports = {
         return usersMap.get(id);
     },
 
-    async getUserByEmail(email) {
+    getUserByEmail: async function(email) {
         const usersMap = await dbController.getMap(DB_PATH);
         return usersMap.get(email);
     }

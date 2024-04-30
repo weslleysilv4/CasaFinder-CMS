@@ -1,9 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const Admin = require('../models/Admin');
-const Acess = require('../controllers/acessController');
+const userController = require('../controllers/userController');
 
-login = (req, res, next) => {
+login = async (req, res, next) => {
+    const userInput = req.body;
+    const userTarget = await userController.getUserByEmail(userInput.email).then((result) => {return result});
+
+    console.log(userTarget);
+    console.log(userInput);
+
+    // if(userTarget) {
+    //     if(userTarget.password)
+    // }
+    
+    
     if(Admin.isAdmin(req.body)) {
         req.session.user = req.body;
         res.redirect("/admin");
@@ -15,7 +26,7 @@ login = (req, res, next) => {
 }
 
 // Cria o cookie de "lembrar-me" do usuário.
-const salvaUsuario = (req, res, next) => {
+const setCookies = (req, res, next) => {
     if (req.body.rememberUser) {
         res.cookie("email", req.body.email, {maxAge: 7 * 24 * 60 * 60 * 1000})
     } else {
@@ -31,7 +42,7 @@ const logout = (req, res, next) => {
     res.redirect("/")
 }
 
-router.post("/login", salvaUsuario, login);
+router.post("/login", setCookies, login);
 router.get("/logout", logout);
 
 module.exports = router;

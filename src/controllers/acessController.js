@@ -1,10 +1,10 @@
 const Admin = require('../models/Admin');
-let flag = false;
+let acessCondition = false;
 
 module.exports = {
     checkLogin: (req, res, next) => {
         if (req.session.user) {
-            flag = true;
+            acessCondition = true;
             return next();
         }
 
@@ -12,7 +12,7 @@ module.exports = {
         res.redirect("/");
     },
 
-    isLogged: () => { return flag },
+    isLogged: () => { return acessCondition },
     isAdmin: (userProps) => { return Admin.isAdmin(userProps) },
-    userLogout: () => { flag = false }
+    changeUserCondition: (newCondition) => { acessCondition = newCondition}
 }
