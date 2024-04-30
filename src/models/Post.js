@@ -28,7 +28,7 @@ export class Post {
     get author() { return this.#createdBy };
     get creationDate() { return this.#createdAt };
     get address() { return this.#address };
-    get postImg() { return this.#img };
+    
 
     calculateId() {
         return Math.floor(Math.random() * 90000) + 10000;
