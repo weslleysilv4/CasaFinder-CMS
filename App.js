@@ -3,6 +3,7 @@ const path = require("path")
 require("dotenv").config()
 const indexRouter = require('./src/routes/index');
 const loginRouter = require('./src/routes/login');
+const signInRouter = require('./src/routes/signIn');
 const adminRouter = require('./src/routes/admin');
 
 //Express
@@ -25,7 +26,6 @@ app.use(cookieParser())
 
 //Sessão
 const session = require("express-session");
-const { log } = require("console");
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -33,6 +33,7 @@ app.use(session({
 }));
 
 app.use("/", indexRouter);
+app.use("/", signInRouter);
 app.use("/", adminRouter);
 app.use("/", loginRouter);
 

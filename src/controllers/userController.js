@@ -4,11 +4,9 @@ const dbController = require('./dbController');
 const User = require('../models/User');
 
 module.exports = {
-    addUser(user) {
+    addUser(userJSON) {
         dbController.isDbCreated(DB_PATH);
-        const newUser = new User(user);
-        const postJSON = JSON.parse(JSON.stringify(newUser));
-        dbController.addToDB(postJSON, DB_PATH);
+        dbController.addToDB(userJSON, DB_PATH);
     },
 
     async getUserById(id) {

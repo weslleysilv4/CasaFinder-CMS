@@ -4,7 +4,7 @@ module.exports = {
     // Verifica se o database existe
     isDbCreated: (Path) => {
         if (!fs.existsSync(Path)) {
-            fs.writeFile(Path, "[]", (error) => {
+            fs.writeFileSync(Path, "[]", (error) => {
                 if(error) return console.log(err);
             })
         } 

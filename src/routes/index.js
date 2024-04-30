@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Acess = require("../controllers/Acess");
+const Acess = require("../controllers/acessController");
 
 router.get("/", (req, res) => {
     res.render("home/index", {
