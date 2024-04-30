@@ -21,12 +21,12 @@ module.exports = {
     },
     
     // Retornar um JSON com as informações do database
-    getJSON: async (Path) => {
+    getJSON: async function(Path) {
         const fileContent = fs.readFileSync(Path, 'utf-8');
         return JSON.parse(fileContent);
     },
     
-    getMap: async (Path) => {
+    getMap: async function(Path) {
         const jsonContent = await this.getJSON(Path);
         const map = new Map();
         jsonContent.forEach(user => map.set(user.id, user));

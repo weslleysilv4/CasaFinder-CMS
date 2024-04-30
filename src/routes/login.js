@@ -2,10 +2,24 @@ const express = require('express');
 const router = express.Router();
 const Admin = require('../models/Admin');
 const Acess = require('../controllers/acessController');
+const userController = require('../controllers/userController');
 
 login = (req, res, next) => {
-    if(Admin.isAdmin(req.body)) {
-        req.session.user = req.body;
+    const userInput = req.body;
+    let userTarget;
+    userController.getUserByEmail(userInput.email).then((result) => {
+        userTarget = result;
+    })
+
+    console.log(userTarget);
+    console.log(userInput);
+    
+    // if(userTarget) {
+    //     if(userTarget.password)
+    // }
+    
+    if(Admin.isAdmin(userInput)) {
+        req.session.user = userInput;
         res.redirect("/admin");
         return next();
     }
