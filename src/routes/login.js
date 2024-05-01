@@ -10,7 +10,8 @@ login = async (req, res, next) => {
 
     if(authentication) {
         req.session.user = authentication;
-        res.redirect('/admin');
+        res.redirect('/');
+        Acess.changeUserCondition(true);
         return next();
     }
     
@@ -32,7 +33,7 @@ authLogin = async (userInput) => {
 }
 
 // Cria o cookie de "lembrar-me" do usuário.
-const salvaUsuario = (req, res, next) => {
+salvaUsuario = (req, res, next) => {
     if (req.body.rememberUser) {
         res.cookie("email", req.body.email, {maxAge: 7 * 24 * 60 * 60 * 1000})
     } else {
@@ -42,7 +43,7 @@ const salvaUsuario = (req, res, next) => {
     return next()
 }
 
-const logout = (req, res, next) => {
+logout = (req, res, next) => {
     req.session.user = null;
     Acess.changeUserCondition(false);
     res.redirect("/")
