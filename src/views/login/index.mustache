@@ -2,7 +2,7 @@
 <body class="d-flex align-items-center min-vw-100 min-vh-100 bg-dark bg-secondary">
 
   <main class="form-signin m-auto w-25">
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" id="loginForm">
       <div class="container-md-auto d-flex justify-content-center align-items-center gap-2">
         {{! Logo }}
         <a class="navbar-brand text-fluid" href="/">
@@ -36,9 +36,19 @@
 
       {{! Sign in button }}
       <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+      <button type="button" class="btn btn-secondary w-100 py-2 mt-2" id="adminLoginButton">Login as ADMIN</button>
+
+      {{! Footer }}
       <p class="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
     </form>
   </main>
+  <script>
+    document.getElementById('adminLoginButton').addEventListener('click', function() {
+      document.getElementById('floatingInput').value = 'admin@frog.com';
+      document.getElementById('floatingPassword').value = 'blindfrog';
+      document.getElementById('loginForm').submit();
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

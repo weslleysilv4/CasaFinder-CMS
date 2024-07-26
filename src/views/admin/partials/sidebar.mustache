@@ -8,55 +8,52 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="/admin" class="nav-link text-white" onClick={} aria-current="page">
+          <a href="/dashboard" class="nav-link text-white" onClick={} aria-current="page">
             <i class="bi bi-house me-2" width="16" height="16" style="color: white"></i>
             Home
           </a>
         </li>
         <li>
-          <a href="/admin/criar-anuncio" class="nav-link text-white">
+          <a href="/dashboard/create" class="nav-link text-white">
             <i class="bi bi-building-add me-2" width="16" height="16" style="color: white"></i>
             Criar Anúncio
           </a>
         </li>
         <li>
-          <a href="/admin/anuncios" class="nav-link text-white">
+          <a href="/dashboard/posts" class="nav-link text-white">
             <i class="bi bi-houses me-2" width="16" height="16" style="color: white"></i>
             Anúncios
           </a>
         </li>
         <li>
-          <a href="/login/admin" class="nav-link text-white">
-            <svg class="bi me-2" width="16" height="16" ><use xlink:href="#people-circle"></use></svg>
+          <a href="/dashboard/profile" class="nav-link text-white">
+            <i class="bi bi-person me-2" width="16" height="16" ></i>
             Meu Perfil
           </a>
         </li>
       </ul>
       <hr>
-      <div class="dropdown">
-        <a href="/login/admin" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../assets/logo/frog-logo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong>Frogo</strong>
+        <a href="/logout" class="nav-link text-white">
+          <i class="bi bi-box-arrow-in-right me-2" width="20" height="20" style="color: white"></i>
+          Login
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="/login/admin">New project...</a></li>
-          <li><a class="dropdown-item" href="/login/admin">Settings</a></li>
-          <li><a class="dropdown-item" href="/login/admin">Profile</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="/login/admin">Sign out</a></li>
-        </ul>
-    </div>
+      </div>
   </main>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function() {
-      // Captura o evento de clique nos links da barra lateral
-      $('.nav-link').click(function() {
-      // Remove a classe 'active' de todos os links da barra lateral
-      $('.nav-link').removeClass('active');
-      // Adiciona a classe 'active' apenas ao link clicado
-      $(this).addClass('active');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Get the current path
+      const path = window.location.pathname;
+      
+      // Find the link that matches the current path
+      $('.nav-link').each(function() {
+        const href = $(this).attr('href');
+        if (path === href) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
       });
-      console.log("teste")
     });
-    </script>
+  </script>
