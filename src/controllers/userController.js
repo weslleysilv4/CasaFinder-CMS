@@ -1,19 +1,24 @@
 const path = require('path')
 const DB_PATH = path.join(path.dirname(__dirname), '\\database\\userDB.json')
-const dbController = require('./dbController')
+const db = require('./dbController')
+const User = require('../models/User')
 
-module.exports = {
-  addUser(userJSON) {
-    dbController.addToDB(userJSON, DB_PATH)
-  },
-
-  async getUserById(UserId) {
-    const usersMap = await dbController.getMap(DB_PATH, 'id')
-    return usersMap.get(UserId)
-  },
-
-  async getUserByEmail(UserEmail) {
-    const usersMap = await dbController.getMap(DB_PATH, 'email')
-    return usersMap.get(UserEmail)
+const userController = {
+  async createUser(req, res) {
+    try {
+      const { username, email, password } = req.body
+      const userFounded = await db.getByEmail(email, DB_PATH)
+      if (userFounded) {
+        return res.status(400).json({ error: 'Usuário já cadastrado' })
+      }
+      const user = new User({ username, email, password })
+      await db.addToDB(user, DB_PATH)
+      res.status(201).send(user)
+    } catch (error) {
+      console.log(error)
+      res.status(400).send(error)
+    }
   },
 }
+
+module.exports = userController

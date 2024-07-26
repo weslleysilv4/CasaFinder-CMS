@@ -1,11 +1,8 @@
 //Requires gerais
 const path = require('path')
 require('dotenv').config()
-const indexRouter = require('./src/routes/index')
-const loginRouter = require('./src/routes/login')
-const adminRouter = require('./src/routes/admin')
-const signUpRouter = require('./src/routes/signUp')
 
+//Routers
 //Express
 const express = require('express')
 const app = express()
@@ -33,11 +30,8 @@ app.use(
     saveUninitialized: false,
   })
 )
-
-app.use('/', indexRouter)
-app.use('/', adminRouter)
-app.use('/', loginRouter)
-app.use('/', signUpRouter)
+// Routers
+app.use('/', require('./src/routes/index'))
 
 //Error handler
 app.use(function (err, req, res, next) {
