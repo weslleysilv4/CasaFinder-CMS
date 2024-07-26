@@ -2,14 +2,14 @@ const { v4: uuidv4 } = require('uuid')
 
 module.exports = class User {
   _uuid
-  _name
+  _username
   _email
   _password
   _posts
 
   constructor(User) {
     this._uuid = uuidv4()
-    this._name = User.name
+    this._username = User.username
     this._email = User.email
     this._password = User.password
     this._posts = []
@@ -18,8 +18,8 @@ module.exports = class User {
   get id() {
     return this._uuid
   }
-  get name() {
-    return this._name
+  get username() {
+    return this._username
   }
   get email() {
     return this._email
@@ -34,7 +34,7 @@ module.exports = class User {
   toJSON() {
     return {
       id: this.id,
-      name: this.name,
+      username: this.username,
       email: this.email,
       password: this.password,
       posts: this.posts,

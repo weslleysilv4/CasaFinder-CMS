@@ -63,6 +63,22 @@ const dbController = {
     })
     return filteredContent
   },
+  addPostToUser: async (userEmail, post) => {
+    try {
+      const user = dbController.getByEmail(userEmail, DB_PATH)
+
+      if (user === -1) {
+        throw new Error('Usuário não encontrado')
+      }
+      user.posts.push(post)
+
+      fs.writeFileSync(DB_PATH, JSON.stringify(user, null, 2), 'utf-8')
+      return user
+    } catch (error) {
+      console.error('Erro ao adicionar post ao usuário:', error)
+      throw error
+    }
+  },
 }
 
 module.exports = dbController
