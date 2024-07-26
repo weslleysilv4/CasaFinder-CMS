@@ -12,7 +12,7 @@ router.get('/dashboard/posts', Access.isAuthenticated, (req, res) => {
 
 router.get('/dashboard/posts/new', Access.isAuthenticated, (req, res) => {
   res.render('admin/pages/criarPost', {
-    username: req.session.user.name,
+    email: req.session.user.email,
   })
 })
 router.post('/dashboard/posts/new', postController.createPost)

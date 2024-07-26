@@ -7,9 +7,8 @@ module.exports = {
    */
   isAdmin: (Admin) => {
     if (!Admin) return false
-
+    Admin.name == process.env.ADMIN_NAME
     return (
-      Admin.username == process.env.ADMIN_USERNAME &&
       Admin.email == process.env.ADMIN_EMAIL &&
       Admin.password == process.env.ADMIN_PASSWORD
     )

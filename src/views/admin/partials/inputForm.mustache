@@ -1,44 +1,47 @@
 <form action="/dashboard/post/new" class="row g-3 needs-validation" method="POST" validate>
-  <div class="col-md-2">
-    <label for="validationCustomUsername" class="form-label">Username</label>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Título</label>
+    <input type="text" class="form-control" id="validationCustom01" name="title" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom02" class="form-label">Descrição</label>
+    <input type="text" class="form-control" id="validationCustom02" name="description" required placeholder="Casa bonita, 4 cômodos, garagem, etc...">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Email</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control" id="validationCustomUsername"  value={{username}} aria-describedby="inputGroupPrepend" required>
+      <input type="email" class="form-control" id="validationCustomUsername" name="createdBy" value={{email}} aria-describedby="inputGroupPrepend" required>
       <div class="invalid-feedback">
-        Please choose a username.
+        Por favor, insira um Email válido.
       </div>
     </div>
   </div>
   <div class="col-md-3">
-    <label for="validationCustom03" class="form-label">Cidade</label>
-    <input type="text" class="form-control" id="validationCustom03" required>
+    <label for="validationCustom03" class="form-label">Endereço</label>
+    <input type="text" class="form-control" id="validationCustom03" name="address" required placeholder="Rua Tchuros Bangus, Tudus bangus - 123456">
     <div class="invalid-feedback">
-      Por favor, insira uma cidade válida.
+      Por favor, insira um Endereço válido.
     </div>
   </div>
-  <div class="col-md-3">
-    <label for="validationCustom06" class="form-label">Valor</label>
-    <input type="number" class="form-control" id="validationCustom06" required>
+  <div class="col-md-2">
+    <label for="validationCustom06" class="form-label">Preço</label>
+    <input type="number" class="form-control" id="validationCustom06" name="price" required placeholder="R$ 300,00">
     <div class="invalid-feedback">
       Por favo, insira um valor válido.
     </div>
   </div>
-  <div class="col-md-3">
-    <label for="validationCustom04" class="form-label">Estado</label>
-    <select class="form-select" id="validationCustom04" required>
-      <option selected disabled value="">Escolha...</option>
-      <option>PR</option>
-      <option>SP</option>
-    </select>
+  <div class="col-12">
+    <label for="validationCustom04" class="form-label">Imagem</label>
+    <input type="text" class="form-control" id="validationCustom04" name="image" required placeholder="https://exemplodeimagem.com/imagem.png">
     <div class="invalid-feedback">
-      Por favor, selecione um Estado.
-    </div>
-  </div>
-  <div class="col-md-3">
-    <label for="validationCustom05" class="form-label">CEP</label>
-    <input type="text" class="form-control" id="validationCustom05" required>
-    <div class="invalid-feedback">
-      Por favor, insira um CEP válido.
+      Por favor, insira um url de imagem.
     </div>
   </div>
   <div class="col-12">
