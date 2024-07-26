@@ -1,9 +1,11 @@
 const Admin = require('../models/Admin')
 const db = require('./dbController')
 
-let accessCondition = false
-
 const authenticateUser = async (email, password) => {
+  const isAdmin = await Admin.isAdmin({ email, password })
+  if (isAdmin) {
+    return { email, password }
+  }
   const userTarget = await db.getByEmail(email, db.getDB_PATH())
   return userTarget && userTarget.password === password ? userTarget : null
 }
@@ -47,7 +49,12 @@ const accessController = {
   },
 
   logout: (req, res) => {
-    req.session.user = null
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).send('Não foi possível fazer logout')
+      }
+    })
+    res.clearCookie('connect.sid')
     changeUserCondition(false)
     res.redirect('/')
   },
@@ -58,17 +65,26 @@ const accessController = {
       return next()
     }
     req.session.messages = ['Usuário não autenticado']
-    res.redirect('/login')
   },
 
   checkAdminLogin: (req, res, next) => {
     if (Admin.isAdmin(req.session.user)) {
       return next()
     }
-    res.redirect('/')
   },
 
-  isLogged: () => accessCondition,
+  isNotAuthenticated: (req, res, next) => {
+    if (req.session.user) {
+      return res.redirect('/dashboard')
+    }
+    next()
+  },
+  isAuthenticated: (req, res, next) => {
+    if (req.session.user) {
+      return next()
+    }
+    res.redirect('/login')
+  },
 
   isAdmin: (userProps) => Admin.isAdmin(userProps),
 }
