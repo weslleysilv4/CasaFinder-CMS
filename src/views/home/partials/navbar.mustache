@@ -16,10 +16,6 @@
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
             </li>
-            {{! Login button }}
-            <li class="nav-item" {{loginButton}}>
-              <a class="nav-link text-white" href="/login">Login</a>
-            </li>
             {{! Dashboard }}
             <li class="nav-item">
               <a class="nav-link text-white" href="/admin" {{dashboard}}>Dashboard</a>
@@ -36,6 +32,13 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Vender</a></li>
               </ul>
+            </li>
+            {{! Login button }}
+            <li class="nav-item" {{loginButton}}>
+              <a class="nav-link text-white" href="/login">Login</a>
+            </li>
+            <li class="nav-item" {{logoutButton}}>
+              <a class="nav-link text-white" href="/logout">Logout</a>
             </li>
           </ul>
           {{! Pesquisar }}

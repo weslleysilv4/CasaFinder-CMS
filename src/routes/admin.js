@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Acess = require('../controllers/acessController');
+const Access = require('../controllers/accessController');
 
-router.get("/admin", Acess.checkLogin, (req,res) => {
-    res.render("admin/index")
+router.use("/admin", Access.checkAdminLogin);
+
+router.get("/admin", (req, res) => {
+    res.render("admin/index");
 })
 
 router.get("/admin/criar-anuncio", (req, res) => {

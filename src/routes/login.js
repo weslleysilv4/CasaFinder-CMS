@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Admin = require('../models/Admin');
-const Acess = require('../controllers/acessController');
+const Access = require('../controllers/accessController');
 const userController = require('../controllers/userController');
 
 login = async (req, res, next) => {
@@ -11,7 +11,7 @@ login = async (req, res, next) => {
     if(authentication) {
         req.session.user = authentication;
         res.redirect('/');
-        Acess.changeUserCondition(true);
+        Access.changeUserCondition(true);
         return next();
     }
     
@@ -27,9 +27,9 @@ login = async (req, res, next) => {
 
 authLogin = async (userInput) => {
     const userTarget = await userController.getUserByEmail(userInput.email);
-    return userTarget && userTarget.password === userInput.password
-     ? userTarget 
-     : undefined;
+    return (userTarget && userTarget.password === userInput.password)
+        ? userTarget 
+        : undefined;
 }
 
 // Cria o cookie de "lembrar-me" do usuário.
@@ -45,7 +45,7 @@ salvaUsuario = (req, res, next) => {
 
 logout = (req, res, next) => {
     req.session.user = null;
-    Acess.changeUserCondition(false);
+    Access.changeUserCondition(false);
     res.redirect("/")
 }
 

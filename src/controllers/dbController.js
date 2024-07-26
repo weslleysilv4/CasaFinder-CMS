@@ -1,15 +1,6 @@
 const fs = require('fs');
 
 module.exports = {
-    // Verifica se o database existe
-    isDbCreated: (Path) => {
-        if (!fs.existsSync(Path)) {
-            fs.writeFileSync(Path, "[]", (error) => {
-                if(error) return console.log(err);
-            })
-        } 
-    },
-    
     // Adiciona o conteúdo ao database
     addToDB: (Content, Path) => {
         const fileContent = JSON.parse(fs.readFileSync(Path, 'utf-8'));
