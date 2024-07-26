@@ -1,24 +1,22 @@
-export class Post {
+module.export = class Post {
   #id
   #title
   #description
-  #value
+  #price
   #createdBy
   #createdAt
   #address
-  #img
-  #url
+  #imgURL
 
   constructor(Post) {
     this.#id = this.calculateId()
     this.#title = Post.title
     this.#description = Post.description
-    this.#value = Post.value
-    this.#createdBy = Post.value
+    this.#price = Post.price
+    this.#createdBy = Post.createdBy
     this.#createdAt = this.DataFormat(new Date())
     this.#address = Post.address
-    this.#img = Post.img
-    this.#url = Post.url
+    this.#imgURL = Post.imgURL
   }
 
   get id() {
@@ -30,8 +28,8 @@ export class Post {
   get description() {
     return this.#description
   }
-  get value() {
-    return this.#value
+  get price() {
+    return this.#price
   }
   get author() {
     return this.#createdBy

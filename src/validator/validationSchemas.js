@@ -10,12 +10,12 @@ const createUserValidator = Joi.object({
 })
 
 const createPostValidator = Joi.object({
-  username: Joi.string().min(3).required(),
-  city: Joi.string().required(),
-  price: Joi.number().required(),
-  state: Joi.string().required(),
-  zipcode: Joi.string().required(),
-  street: Joi.string().required(),
+  title: Joi.string().min(3).required(),
+  description: Joi.string().min(10).required(),
+  price: Joi.number().positive().required(),
+  createdBy: Joi.string().min(3).required(),
+  address: Joi.string().min(5).required(),
+  imgURL: Joi.string().uri().optional(),
 })
 
 module.exports = {
