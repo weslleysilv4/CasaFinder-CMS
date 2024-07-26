@@ -9,4 +9,10 @@ router.get('/dashboard/posts', Access.isAuthenticated, (req, res) => {
   res.render('admin/pages/anuncios')
 })
 
+router.get('/dashboard/posts/new', Access.isAuthenticated, (req, res) => {
+  res.render('admin/pages/criarPost', {
+    username: req.session.user.name,
+  })
+})
+
 module.exports = router

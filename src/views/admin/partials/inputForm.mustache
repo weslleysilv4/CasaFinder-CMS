@@ -1,23 +1,9 @@
-<form action="/admin/criar-anuncio" class="row g-3 needs-validation" method="POST" validate>
-  <div class="col-md-4">
-    <label for="validationCustom01" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="validationCustom01" value="Alek" required>
-    <div class="valid-feedback">
-      Ok!
-    </div>
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Sobrenome</label>
-    <input type="text" class="form-control" id="validationCustom02" value="Silva" required>
-    <div class="valid-feedback">
-      Ok!
-    </div>
-  </div>
-  <div class="col-md-4">
+<form action="/dashboard/post/new" class="row g-3 needs-validation" method="POST" validate>
+  <div class="col-md-2">
     <label for="validationCustomUsername" class="form-label">Username</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <input type="text" class="form-control" id="validationCustomUsername"  value={{username}} aria-describedby="inputGroupPrepend" required>
       <div class="invalid-feedback">
         Please choose a username.
       </div>

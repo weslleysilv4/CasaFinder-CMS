@@ -29,7 +29,7 @@ const accessController = {
 
       if (Admin.isAdmin(req.body)) {
         req.session.user = req.body
-        return res.redirect('/admin')
+        return res.redirect('/dashboard')
       }
 
       req.session.messages = ['Erro ao realizar login!']
@@ -58,21 +58,6 @@ const accessController = {
     changeUserCondition(false)
     res.redirect('/')
   },
-
-  checkLogin: (req, res, next) => {
-    if (req.session.user) {
-      accessCondition = true
-      return next()
-    }
-    req.session.messages = ['Usuário não autenticado']
-  },
-
-  checkAdminLogin: (req, res, next) => {
-    if (Admin.isAdmin(req.session.user)) {
-      return next()
-    }
-  },
-
   isNotAuthenticated: (req, res, next) => {
     if (req.session.user) {
       return res.redirect('/dashboard')
