@@ -3,18 +3,12 @@
 }
 .card-container {
   transition: all 0.4s;
-  height: auto;
 }
 .card:hover {
   transform: scale(1.02);
 }
-.card-body {
-  height: 100%;
-  max-height: 250px;
-}
 .card-text {
   white-space: wrap;
-  text-overflow: clip;
 }
 /* Personalização do Scroll */
 .scroll-container {

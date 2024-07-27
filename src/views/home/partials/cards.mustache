@@ -3,9 +3,9 @@
     <h2 class="pb-4">Casas Disponíveis</h2>
     <div class="d-flex flex-nowrap gap-3 scroll-container">
       {{#data}}
-      <div class="col-12 col-md-4 col-lg-3 mb-2 card-container">
+      <div class="center mb-2 card-container">
         <div class="card shadow-sm " role="button" style="width: 18rem">
-          <img src="../assets/casa1.jpg" class="card-img-top" alt="">
+          <img src={{imgURL}} class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title">{{title}}</h5>
             <p class="card-subtitle text-muted">
@@ -26,7 +26,7 @@
               {{/isAuthenticated}}
               <div class="d-flex justify-content-end gap-2">
                 <i class="bi bi-house-check-fill"></i>
-                <p class="text-body-primary fw-bold">R$ {{price}}</p>
+                <p class="text-body-primary fw-bold">{{price}}</p>
               </div>
             </div>
           </div>
