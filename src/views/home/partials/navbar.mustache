@@ -16,23 +16,17 @@
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
             </li>
+            {{! Meus Imóveis }}
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#cards" role="button" a>
+                Imóveis
+              </a>
+            </li>
             {{! Dashboard }}
             <li class="nav-item">
               <a class="nav-link text-white" href="/dashboard" {{dashboard}}>Dashboard</a>
             </li>
 
-            {{! Residências }}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Residências
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Alugar</a></li>
-                <li><a class="dropdown-item" href="#">Comprar</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Vender</a></li>
-              </ul>
-            </li>
             {{! Login button }}
             <li class="nav-item" {{loginButton}}>
               <a class="nav-link text-white" href="/login">Login</a>

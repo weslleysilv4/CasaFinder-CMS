@@ -3,27 +3,27 @@
 ### 1. Sistema de Login para o administrador de conteúdo
 
 - O nome de usuário e senha são fixos e devem ser armazenados em um arquivo
-de configuração (.env)
-- Para controle de autenticação do usuário deve ser utilizado sessão
-- O sistema deve também incluir uma rota para logout
+  de configuração (.env) ✅
+- Para controle de autenticação do usuário deve ser utilizado sessão ✅
+- O sistema deve também incluir uma rota para logout ✅
 
 ### 2. Criação dinâmica de páginas
 
 - Para criar uma página é necessário estar logado
 - O usuário deve especificar a URL e o conteúdo desejado (o conteúdo pode ter
-marcação HTML ou permitir outra linguagem de estilização como o Markdown)
+  marcação HTML ou permitir outra linguagem de estilização como o Markdown)
 
 ### 3. Edição do conteúdo de uma página
 
 - Para editar uma página é necessário estar logado
 - O usuário poderá alterar o conteúdo de uma página, porém não poderá modificar
-a URL definida
+  a URL definida
 
 ### 4. Exclusão de uma página
 
 - Para excluir uma página é necessário estar logado
 - Ao excluir uma página, seu conteúdo e rota são excluídos permanentemente do
-sistema
+  sistema
 
 ### 5. Página inicial do site
 
@@ -37,7 +37,7 @@ sistema
 
 ### 7. Recurso extra
 
-- Cada equipe deverá elaborar um recurso extra que tornará o seu CMS exclusivo
+- Cada equipe deverá elaborar um recurso extra que tornará o seu CMS exclusivo ✅
 - Exemplos: Customização visual, upload de imagens, comentários, classificação
-das páginas, múltiplos administradores, uso de tags nas páginas, categorias de
-páginas, etc.
+  das páginas, múltiplos administradores, uso de tags nas páginas, categorias de
+  páginas, etc. ✅
