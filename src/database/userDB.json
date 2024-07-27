@@ -60,6 +60,16 @@
         "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
         "price": "R$ 200,40",
         "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 16866,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
+        "createdBy": "theo@candido1.com",
+        "createdAt": "27/07/2024",
+        "address": "123 Main St, City, Country",
+        "imgURL": "https://vgprojetos.com/wp-content/uploads/2022/09/P11-IMG-2.jpg.webp"
       }
     ]
   }
