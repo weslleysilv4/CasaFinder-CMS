@@ -1,6 +1,5 @@
-const path = require('path')
-const DB_PATH = path.join(path.dirname(__dirname), '\\database\\userDB.json')
 const db = require('./dbController')
+const DB_PATH = db.getDB_PATH()
 const User = require('../models/User')
 const { createUserValidator } = require('../validator/validationSchemas')
 

@@ -1,7 +1,46 @@
-{
-  "id": "67ee72e0-c465-416f-bd41-eb5f618471c9",
-  "username": "Weslley Dog",
-  "email": "theo@mamae.com",
-  "password": "123456",
-  "posts": []
-}
+[
+  {
+    "id": "67ee72e0-c465-416f-bd41-eb5f618471c9",
+    "username": "Weslley Dog",
+    "email": "theo@mamae.com",
+    "password": "123456",
+    "posts": [
+      {
+        "id": 63718,
+        "title": "New Post Title",
+        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
+        "price": 10050,
+        "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 26285,
+        "title": "New Post Title",
+        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
+        "price": 10050,
+        "address": "123 Main St, City, Country"
+      }
+    ]
+  },
+  {
+    "id": "8c162852-7d28-4dd8-a799-974005587823",
+    "username": "Theo Candido",
+    "email": "theo@candido.com",
+    "password": "theozinho",
+    "posts": []
+  },
+  {
+    "id": "cd3a6cc3-e5b9-4444-94b6-f9437699744c",
+    "username": "Theo Candido",
+    "email": "theo@candido1.com",
+    "password": "theozinho",
+    "posts": [
+      {
+        "id": 35318,
+        "title": "New Post Title",
+        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
+        "price": 10050,
+        "address": "123 Main St, City, Country"
+      }
+    ]
+  }
+]

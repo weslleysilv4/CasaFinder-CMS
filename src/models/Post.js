@@ -55,4 +55,16 @@ module.exports = class Post {
 
     return dia + '/' + mes + '/' + ano
   }
+  toJSON() {
+    return {
+      id: this.id,
+      title: this.title,
+      description: this.description,
+      price: this.price,
+      createdBy: this.createdBy,
+      createdAt: this.createdAt,
+      address: this.address,
+      imgURL: this.imgURL,
+    }
+  }
 }

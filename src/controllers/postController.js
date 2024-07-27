@@ -11,7 +11,8 @@ const postController = {
 
       const createdBy = req.session.user
         ? req.session.user.email
-        : 'theo@mamae.com'
+        : 'theo@candido1.com'
+
       const post = new Post({
         title,
         description,
@@ -20,10 +21,6 @@ const postController = {
         address,
         imgURL,
       })
-      if (error) {
-        console.log({ post, error })
-        return res.status(400).send({ error: error.message })
-      }
       await db.addPostToUser(createdBy, post)
       res.status(201).json(post)
     } catch (error) {

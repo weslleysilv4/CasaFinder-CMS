@@ -65,15 +65,26 @@ const dbController = {
   },
   addPostToUser: async (userEmail, post) => {
     try {
-      const user = dbController.getByEmail(userEmail, DB_PATH)
-
+      const user = await dbController.getByEmail(userEmail, DB_PATH)
       if (user === -1) {
         throw new Error('Usuário não encontrado')
       }
-      user.posts.push(post)
-
-      fs.writeFileSync(DB_PATH, JSON.stringify(user, null, 2), 'utf-8')
-      return user
+      const content = dbController.getJSON(DB_PATH)
+      content.then((users) => {
+        const updatedUsers = users.map((user) => {
+          if (user.email === userEmail) {
+            user.posts.push(post)
+          }
+          return user
+        })
+        fs.writeFile(
+          DB_PATH,
+          JSON.stringify(updatedUsers, null, 2),
+          (error) => {
+            if (error) throw error
+          }
+        )
+      })
     } catch (error) {
       console.error('Erro ao adicionar post ao usuário:', error)
       throw error
