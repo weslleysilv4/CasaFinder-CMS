@@ -3,8 +3,13 @@ const Access = require('../controllers/accessController')
 const postController = require('../controllers/postController')
 const db = require('../controllers/dbController')
 
-router.get('/dashboard', Access.isAuthenticated, (req, res) => {
-  res.render('admin/index')
+router.get('/dashboard', Access.isAuthenticated, async (req, res) => {
+  const data = Access.isAdmin(req.session.user)
+    ? await db.getAllPosts()
+    : await db.getAllPostsByUser(req.session.user.email)
+  res.render('admin/index', {
+    data: data,
+  })
 })
 
 router.get('/dashboard/posts', Access.isAuthenticated, async (req, res) => {
