@@ -12,7 +12,10 @@ module.exports = class Post {
     this.#id = this.calculateId()
     this.#title = Post.title
     this.#description = Post.description
-    this.#price = Post.price
+    this.#price = Post.price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    })
     this.#createdBy = Post.createdBy
     this.#createdAt = this.DataFormat(new Date())
     this.#address = Post.address
@@ -43,6 +46,12 @@ module.exports = class Post {
 
   calculateId() {
     return Math.floor(Math.random() * 90000) + 10000
+  }
+  PriceFormat() {
+    return this.#price.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    })
   }
 
   DataFormat(data) {

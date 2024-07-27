@@ -4,22 +4,7 @@
     "username": "Weslley Dog",
     "email": "theo@mamae.com",
     "password": "123456",
-    "posts": [
-      {
-        "id": 63718,
-        "title": "New Post Title",
-        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
-        "price": 10050,
-        "address": "123 Main St, City, Country"
-      },
-      {
-        "id": 26285,
-        "title": "New Post Title",
-        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
-        "price": 10050,
-        "address": "123 Main St, City, Country"
-      }
-    ]
+    "posts": []
   },
   {
     "id": "8c162852-7d28-4dd8-a799-974005587823",
@@ -35,17 +20,45 @@
     "password": "theozinho",
     "posts": [
       {
-        "id": 35318,
-        "title": "New Post Title",
-        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
-        "price": 10050,
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
         "address": "123 Main St, City, Country"
       },
       {
-        "id": 27419,
-        "title": "New Post Title",
-        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
-        "price": 100.5,
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
+        "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
+        "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
+        "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
+        "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 58842,
+        "title": "Casa Bonita",
+        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
+        "price": "R$ 200,40",
         "address": "123 Main St, City, Country"
       }
     ]
