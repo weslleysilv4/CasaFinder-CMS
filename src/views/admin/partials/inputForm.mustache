@@ -45,13 +45,14 @@
     </div>
   </div>
   <div class="col-12">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-      <label class="form-check-label" for="invalidCheck">
-        Concorda com os termos e condições
-      </label>
-      <div class="invalid-feedback">
-        Você precisa concordar para dar continuidade.
+    {{! Termos }}
+      <div class="form-check my-3">
+        <div>
+          <input class="form-check-input" type="checkbox" value="terms" id="flexCheckDefault" required>
+          <label class="form-check-label text" for="flexCheckDefault">
+          Concordo com os termos e condições
+        </label>
+        </div>
       </div>
     </div>
   </div>
