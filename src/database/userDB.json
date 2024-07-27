@@ -1,5 +1,22 @@
 [
   {
+    "username": "Frogmin",
+    "email": "admin@frog.com",
+    "password": "blindfrog",
+    "posts": [
+      {
+        "id": 57690,
+        "title": "Casa dos Crias",
+        "description": "Casa legalzona, Casa legalzona, Casa legalzona, Casa legalzona, ",
+        "price": "950",
+        "createdBy": "admin@frog.com",
+        "createdAt": "27/07/2024",
+        "address": "Rua Tchuros Bangus, tudos bangus",
+        "imgURL": "https://i.pinimg.com/736x/23/d1/dc/23d1dcbe633b450c1f27d286255c3ab8.jpg"
+      }
+    ]
+  },
+  {
     "id": "67ee72e0-c465-416f-bd41-eb5f618471c9",
     "username": "Weslley Dog",
     "email": "theo@mamae.com",

@@ -9,10 +9,12 @@ const postController = {
       const { title, description, price, address, imgURL } = req.body
       const { error } = createPostValidator.validate(req.body)
 
-      const createdBy = req.session.user
-        ? req.session.user.email
-        : 'theo@candido1.com'
-
+      const createdBy = req.session.user ? req.session.user.email : null
+      if (error) {
+        return res
+          .status(400)
+          .render('/dashboard/posts/new', { error: error.message })
+      }
       const post = new Post({
         title,
         description,
@@ -22,10 +24,13 @@ const postController = {
         imgURL,
       })
       await db.addPostToUser(createdBy, post)
-      res.status(201).json(post)
+      res.status(201).json(post).redirect('/dashboard/posts')
     } catch (error) {
       console.log(error)
-      res.status(400).send(error)
+      res
+        .status(400)
+        .send(error)
+        .render('/dashboard/posts/new', { error: error.message })
     }
   },
   async getAllPosts(req, res) {
