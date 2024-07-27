@@ -13,7 +13,6 @@ const createPostValidator = Joi.object({
   title: Joi.string().min(3).required(),
   description: Joi.string().min(10).required(),
   price: Joi.number().positive().required(),
-  createdBy: Joi.string().min(3).required(),
   address: Joi.string().min(5).required(),
   imgURL: Joi.string().uri().optional(),
 })

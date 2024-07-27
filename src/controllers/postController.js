@@ -6,12 +6,12 @@ const { createPostValidator } = require('../validator/validationSchemas')
 const postController = {
   async createPost(req, res) {
     try {
-      const { title, description, price, createdBy, address, imgURL } = req.body
+      const { title, description, price, address, imgURL } = req.body
       const { error } = createPostValidator.validate(req.body)
-      const email = req.session.user.email
-      if (error) {
-        return res.status(400).json({ error: error.message })
-      }
+
+      const createdBy = req.session.user
+        ? req.session.user.email
+        : 'theo@mamae.com'
       const post = new Post({
         title,
         description,
@@ -20,11 +20,15 @@ const postController = {
         address,
         imgURL,
       })
-      await db.addPostToUser(email, post)
+      if (error) {
+        console.log({ post, error })
+        return res.status(400).send({ error: error.message })
+      }
+      await db.addPostToUser(createdBy, post)
       res.status(201).json(post)
     } catch (error) {
       console.log(error)
-      res.status(400).json(error)
+      res.status(400).send(error)
     }
   },
   async getAllPosts(req, res) {

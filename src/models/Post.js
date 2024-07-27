@@ -1,4 +1,4 @@
-module.export = class Post {
+module.exports = class Post {
   #id
   #title
   #description
@@ -46,8 +46,8 @@ module.export = class Post {
   }
 
   DataFormat(data) {
-    const dia = data.getDate()
-    const mes = data.getMonth() + 1
+    let dia = data.getDate()
+    let mes = data.getMonth() + 1
     const ano = data.getFullYear()
 
     if (dia < 10) dia = '0' + dia

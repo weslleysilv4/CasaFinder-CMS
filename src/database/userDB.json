@@ -1,9 +1,7 @@
-[
-  {
-    "id": "67ee72e0-c465-416f-bd41-eb5f618471c9",
-    "username": "Weslley Dog",
-    "email": "weslleysilvaaas.swe@gmail.com",
-    "password": "123456",
-    "posts": []
-  }
-]
+{
+  "id": "67ee72e0-c465-416f-bd41-eb5f618471c9",
+  "username": "Weslley Dog",
+  "email": "theo@mamae.com",
+  "password": "123456",
+  "posts": []
+}
