@@ -90,6 +90,37 @@ const dbController = {
       throw error
     }
   },
+  getAllPosts: async () => {
+    try {
+      const users = await dbController.getJSON(DB_PATH)
+      const list = users.map((user) => user.posts).flat()
+      return list
+    } catch (error) {
+      console.error('Erro ao buscar posts:', error)
+      throw error
+    }
+  },
+  getAllPostsByUser: async (userEmail) => {
+    try {
+      const user = await dbController.getByEmail(userEmail, DB_PATH)
+      if (user === -1) {
+        throw new Error('Usuário não encontrado')
+      }
+      const content = dbController.getJSON(DB_PATH)
+      content.then((users) => {
+        const list = users.map((user) => {
+          if (user.email === userEmail) {
+            list = user.posts
+          }
+          return list
+        })
+      })
+      return list
+    } catch (error) {
+      console.error('Erro ao buscar posts do usuário:', error)
+      throw error
+    }
+  },
 }
 
 module.exports = dbController

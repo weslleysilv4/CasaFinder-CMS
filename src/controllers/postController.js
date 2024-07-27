@@ -30,7 +30,8 @@ const postController = {
   },
   async getAllPosts(req, res) {
     try {
-      const posts = await db.getJSON(DB_PATH)
+      const posts = await db.getAllPostsByUser(req.session.user.email)
+      console.log(posts)
       res.status(200).json(posts)
     } catch (error) {
       res.status(400).json(error)

@@ -40,6 +40,13 @@
         "description": "This is a detailed description of the new post. It should be at least ten characters long.",
         "price": 10050,
         "address": "123 Main St, City, Country"
+      },
+      {
+        "id": 27419,
+        "title": "New Post Title",
+        "description": "This is a detailed description of the new post. It should be at least ten characters long.",
+        "price": 100.5,
+        "address": "123 Main St, City, Country"
       }
     ]
   }

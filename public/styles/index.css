@@ -1,9 +1,38 @@
 .img-200-200 {
   width: 200px;
 }
-.card {
+.card-container {
   transition: all 0.4s;
+  height: auto;
 }
-.card:hover{
+.card:hover {
   transform: scale(1.02);
+}
+.card-body {
+  height: 100%;
+  max-height: 250px;
+}
+.card-text {
+  white-space: wrap;
+  text-overflow: clip;
+}
+/* Personalização do Scroll */
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #168b51;
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor do fundo do scroll */
+  border-radius: 10px; /* Arredondar as bordas do fundo */
 }
