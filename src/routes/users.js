@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const userController = require('../controllers/userController')
 
+router.get('/register', (req, res) => {
+  res.render('signup/index')
+})
+
 router
   .route('/register')
   .post((req, res) => userController.createUser(req, res))

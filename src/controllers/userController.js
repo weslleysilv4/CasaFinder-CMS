@@ -9,18 +9,19 @@ const userController = {
       const { username, email, password } = req.body
       const { error } = createUserValidator.validate(req.body)
       if (error) {
-        return res.status(400).json({ error: error.message })
+        return res.render('signup/index', { error: error.message })
       }
       const userFounded = await db.getByEmail(email, DB_PATH)
       if (userFounded) {
-        return res.status(400).json({ error: 'Usuário já cadastrado' })
+        return res
+          .status(400)
+          .render('signup/index', { error: 'Usuário já cadastrado' })
       }
       const user = new User({ username, email, password })
       await db.addToDB(user, DB_PATH)
-      res.status(201).json(user)
+      res.redirect('/login')
     } catch (error) {
-      console.log(error)
-      res.status(400).json(error)
+      res.render('signup/index', { error: error.message })
     }
   },
   async getAllUsers(req, res) {
