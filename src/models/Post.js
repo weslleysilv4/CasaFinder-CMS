@@ -1,54 +1,57 @@
 module.exports = class Post {
-  #id
-  #title
-  #description
-  #price
-  #createdBy
-  #createdAt
-  #address
-  #imgURL
+  _id
+  _title
+  _description
+  _price
+  _createdBy
+  _createdAt
+  _address
+  _imgURL
 
   constructor(Post) {
-    this.#id = this.calculateId()
-    this.#title = Post.title
-    this.#description = Post.description
-    this.#price = Post.price.toLocaleString('pt-BR', {
+    this._id = this.calculateId()
+    this._title = Post.title
+    this._description = Post.description
+    this._price = Post.price.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     })
-    this.#createdBy = Post.createdBy
-    this.#createdAt = this.DataFormat(new Date())
-    this.#address = Post.address
-    this.#imgURL = Post.imgURL
+    this._createdBy = Post.createdBy
+    this._createdAt = this.DataFormat(new Date())
+    this._address = Post.address
+    this._imgURL = Post.imgURL
   }
 
   get id() {
-    return this.#id
+    return this._id
   }
   get title() {
-    return this.#title
+    return this._title
   }
   get description() {
-    return this.#description
+    return this._description
   }
   get price() {
-    return this.#price
+    return this._price
   }
-  get author() {
-    return this.#createdBy
+  get createdBy() {
+    return this._createdBy
   }
-  get creationDate() {
-    return this.#createdAt
+  get createdAt() {
+    return this._createdAt
   }
   get address() {
-    return this.#address
+    return this._address
+  }
+  get imgURL() {
+    return this._imgURL
   }
 
   calculateId() {
     return Math.floor(Math.random() * 90000) + 10000
   }
   PriceFormat() {
-    return this.#price.toLocaleString('pt-BR', {
+    return this._price.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     })
