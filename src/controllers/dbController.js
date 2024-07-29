@@ -166,6 +166,16 @@ const dbController = {
     if (!postUpdated) throw new Error('Post não encontrado!')
     fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8')
     return postUpdated
+    if (!postUpdated) throw new Error('Post não encontrado!')
+    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8')
+    return postUpdated
+  },
+  deletePost: async (postId) => {
+    const users = await dbController.getJSON(DB_PATH)
+    users.forEach((user) => {
+      user.posts = user.posts.filter((post) => post.id !== postId)
+    })
+    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf-8')
   },
 }
 

@@ -58,7 +58,7 @@ const postController = {
   },
   async updatePost(req, res) {
     try {
-      const id = req.body.id;
+      const id = req.body.id
       const updatedContent = req.body
       const post = await db.updatePost(id, updatedContent)
 
@@ -66,16 +66,16 @@ const postController = {
         return res.status(404).json({ error: 'Post não encontrado' })
       }
 
-      res.status(200).redirect('/dashboard/posts');
+      res.status(200).redirect('/dashboard/posts')
     } catch (error) {
       res.status(400).json(error)
     }
   },
   async deletePost(req, res) {
     try {
-      const { id } = req.params
-      const posts = await db.deleteFromDB(id, DB_PATH)
-      res.status(200).json(posts)
+      const id = req.query.id
+      await db.deletePost(id, DB_PATH)
+      res.status(200).redirect('/dashboard/posts')
     } catch (error) {
       res.status(400).json(error)
     }

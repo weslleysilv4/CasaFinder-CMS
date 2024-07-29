@@ -23,7 +23,7 @@
         <button type="button" class="btn btn-primary edit-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger delete-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalDelete">Excluir</button>
+        <button type="button" class="btn btn-danger delete-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalRemove">Excluir</button>
       </td>
     </tr>
     {{/data}}
@@ -74,6 +74,24 @@
   </div>
 </div>
 
+<!-- Modal de Remoção -->
+<div class="modal fade" id="modalRemove" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="removeModalLabel">Remover Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja remover este item?</p>
+        <form action="/dashboard/posts/remove?_method=DELETE&id={{id}}" method="POST">
+          <input type="hidden" name="id" value="{{id}}"/>
+          <button class="btn btn-danger delete-btn" type="submit">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   async function loadEditModalData(itemId) {
     try {
