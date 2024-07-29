@@ -31,10 +31,7 @@ router.post('/dashboard/posts/new', postController.createPost)
 router.get('/dashboard/posts', postController.getAllPosts)
 router.get('/dashboard/posts/:id', postController.getPostById)
 
-router.post(
-  '/dashboard/posts/edit',
-  postController.updatePost,
-)
+router.post('/dashboard/posts/edit', postController.updatePost)
 
 //TODO: Implementar a exclusão de um post
 router.delete('/dashboard/posts/remove/:id', postController.deletePost)
