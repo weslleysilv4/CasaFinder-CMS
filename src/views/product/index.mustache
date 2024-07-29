@@ -1,0 +1,125 @@
+{{>product/partials/head}}
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
+      <div class="container-md">
+        {{! Imobiliária }}
+        <a class="navbar-brand text-white" href="/">
+          <img src="assets/logo/frog-logo.png" alt="" width="32" height="32" class="d-inline-block align-text-top">
+          Imobiliária
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {{! Home }}
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+            </li>
+            {{! Meus Imóveis }}
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#cards" role="button" a>
+                Imóveis
+              </a>
+            </li>
+            {{! Dashboard }}
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/dashboard" {{dashboard}}>Dashboard</a>
+            </li>
+
+            {{! Login button }}
+            <li class="nav-item" {{loginButton}}>
+              <a class="nav-link text-white" href="/login">Login</a>
+            </li>
+            <li class="nav-item" {{logoutButton}}>
+              <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>
+          </ul>
+          {{! Pesquisar }}
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  <!-- Product section-->
+    <section class="py-5">
+    {{#post}}
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-md-6">
+            <img
+              class="card-img-top mb-5 mb-md-0"
+              src="{{imgURL}}"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="small mb-1">SKU: {{id}}</div>
+            <h1 class="display-5 fw-bolder">{{title}}</h1>
+            <div class="fs-5 mb-5">
+              <span>{{description}}</span>
+            </div>
+            <p class="lead">
+              R$ {{price}},00
+            </p>
+            <div class="d-flex">
+              <input
+                class="form-control text-center me-3"
+                id="inputQuantity"
+                type="num"
+                value="1"
+                style="max-width: 3rem"
+              />
+              <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                <i class="bi-cart-fill me-1"></i>
+                Comprar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{/post}}
+    <!-- Related items section-->
+    <section class="py-5 bg-light">
+      <div class="container px-4 px-lg-5 mt-5">
+        <h2 class="fw-bolder mb-4">Casas Similares</h2>
+        <div
+          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        >
+        {{#data}}
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="{{imgURL}}"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">{{title}}</h5>
+                  <!-- Product price-->
+                  {{price}}
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center">
+                  <a class="btn btn-outline-dark mt-auto" href="/product/{{id}}"
+                    >Visitar</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/data}}
+        </div>
+      </div>
+    </section>
+</body>
