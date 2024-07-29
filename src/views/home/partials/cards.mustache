@@ -20,8 +20,12 @@
               {{#isAuthenticated}}
               <div class="btn-group d-flex justify-content-start">
                 <!-- Botões de editar/excluir -->
-                <button class="btn btn-primary">Editar</button>
-                <button class="btn btn-danger">Excluir</button>
+                <a href="/dashboard/">
+                  <button type="button" class="btn btn-primary">Editar</button>
+                </a>
+                <a href="/dashboard/" >
+                  <button type="button" class="btn btn-danger">Excluir</button>
+                </a>
               </div>
               {{/isAuthenticated}}
               <div class="d-flex justify-content-end gap-2">
