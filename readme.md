@@ -1,43 +1,47 @@
-## Objetivos
+# 📚 Sistema de Gerenciamento de Conteúdo Dinâmico (CMS)
 
-### 1. Sistema de Login para o administrador de conteúdo
+Bem-vindo ao nosso projeto de CMS Dinâmico! Esta poderosa ferramenta permite a criação, edição e gestão dinâmica de páginas com facilidade. Abaixo estão os principais objetivos e funcionalidades do nosso sistema:
 
-- O nome de usuário e senha são fixos e devem ser armazenados em um arquivo
-de configuração (.env)
-- Para controle de autenticação do usuário deve ser utilizado sessão
-- O sistema deve também incluir uma rota para logout
+---
 
-### 2. Criação dinâmica de páginas
+## 🎯 Objetivos
 
-- Para criar uma página é necessário estar logado
-- O usuário deve especificar a URL e o conteúdo desejado (o conteúdo pode ter
-marcação HTML ou permitir outra linguagem de estilização como o Markdown)
+### 1. 🔐 Sistema de Login para o Administrador de Conteúdo
 
-### 3. Edição do conteúdo de uma página
+- **Nome de Usuário e Senha Fixos**: Armazenados de forma segura em um arquivo de configuração (.env).
+- **Autenticação de Usuário**: Gerenciada via sessões.
+- **Rota de Logout**: Desconecte-se do sistema facilmente.
 
-- Para editar uma página é necessário estar logado
-- O usuário poderá alterar o conteúdo de uma página, porém não poderá modificar
-a URL definida
+### 2. 🌐 Criação Dinâmica de Páginas
 
-### 4. Exclusão de uma página
+- **Login Necessário**: Apenas usuários logados podem criar páginas.
+- **Especificar URL e Conteúdo**: O conteúdo pode ser HTML ou estilizado com Markdown.
 
-- Para excluir uma página é necessário estar logado
-- Ao excluir uma página, seu conteúdo e rota são excluídos permanentemente do
-sistema
+### 3. ✏️ Edição do Conteúdo de uma Página
 
-### 5. Página inicial do site
+- **Login Necessário**: Apenas usuários logados podem editar páginas.
+- **Modificação de Conteúdo**: Usuários podem alterar o conteúdo da página, mas não a URL.
 
-- Não é necessário estar logado
-- Lista todas as páginas criadas e disponibiliza links para acessar as mesmas
+### 4. ❌ Exclusão de uma Página
 
-### 6. Visualizador das páginas criadas
+- **Login Necessário**: Apenas usuários logados podem excluir páginas.
+- **Exclusão Permanente**: Tanto o conteúdo quanto a rota são removidos permanentemente.
 
-- Não é necessário estar logado
-- Acessa o conteúdo da página a partir da URL definida na criação da página
+### 5. 🏠 Página Inicial do Site
 
-### 7. Recurso extra
+- **Acesso Público**: Não é necessário estar logado.
+- **Listagem de Páginas**: Lista todas as páginas criadas com links para acessá-las.
 
-- Cada equipe deverá elaborar um recurso extra que tornará o seu CMS exclusivo
-- Exemplos: Customização visual, upload de imagens, comentários, classificação
-das páginas, múltiplos administradores, uso de tags nas páginas, categorias de
-páginas, etc.
+### 6. 📄 Visualizador das Páginas Criadas
+
+- **Acesso Público**: Não é necessário estar logado.
+- **Visualização de Conteúdo**: Acesse o conteúdo da página via a URL definida.
+
+### 7. 🌟 Recurso Extra
+
+- **Recurso Exclusivo da Equipe**: Cada equipe deve adicionar um recurso único para tornar seu CMS exclusivo.
+  - **Exemplos**: Customização visual, upload de imagens, comentários, classificação de páginas, múltiplos administradores, uso de tags nas páginas, categorias de páginas, etc.
+
+---
+
+
