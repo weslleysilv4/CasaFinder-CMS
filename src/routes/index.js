@@ -4,7 +4,6 @@ const db = require('../controllers/dbController')
 const userRouter = require('./users')
 const loginRouter = require('./login')
 const postsRouter = require('./posts')
-
 router.use('/', userRouter)
 router.use('/', loginRouter)
 router.use('/', postsRouter)

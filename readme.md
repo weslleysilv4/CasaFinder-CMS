@@ -27,7 +27,7 @@
 
 ### 5. Página inicial do site
 
-- Não é necessário estar logado
+- Não é necessário estar logado ✅
 - Lista todas as páginas criadas e disponibiliza links para acessar as mesmas
 
 ### 6. Visualizador das páginas criadas
