@@ -4,7 +4,8 @@
     <div class="d-flex flex-nowrap gap-3 scroll-container">
       {{#data}}
       <div class="center mb-2 card-container">
-        <div class="card shadow-sm " role="button" style="width: 18rem">
+        <a href="/product/{{id}}" role="button" style="text-decoration: none">
+        <div class="card shadow-sm " role="button"  style="width: 18rem">
           <img src={{imgURL}} class="card-img-top" alt="">
           <div class="card-body">
             <h5 class="card-title">{{title}}</h5>
@@ -17,17 +18,6 @@
               {{address}}
             </p>
             <div class="d-flex justify-content-between align-items-center">
-              {{#isAuthenticated}}
-              <div class="btn-group d-flex justify-content-start">
-                <!-- Botões de editar/excluir -->
-                <a href="/dashboard/">
-                  <button type="button" class="btn btn-primary">Editar</button>
-                </a>
-                <a href="/dashboard/" >
-                  <button type="button" class="btn btn-danger">Excluir</button>
-                </a>
-              </div>
-              {{/isAuthenticated}}
               <div class="d-flex justify-content-end gap-2">
                 <i class="bi bi-house-check-fill"></i>
                 <p class="text-body-primary fw-bold">{{price}}</p>
@@ -35,6 +25,7 @@
             </div>
           </div>
         </div>
+        </a>
       </div>
       {{/data}}
     </div>

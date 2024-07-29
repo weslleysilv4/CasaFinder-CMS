@@ -10,11 +10,13 @@ const postController = {
       const { error } = createPostValidator.validate(req.body)
 
       const createdBy = req.session.user ? req.session.user.email : null
+
       if (error) {
         return res
           .status(400)
-          .render('/dashboard/posts/new', { error: error.message })
+          .redirect('/dashboard/posts/new', { error: error.message })
       }
+
       const post = new Post({
         title,
         description,
@@ -23,10 +25,10 @@ const postController = {
         address,
         imgURL,
       })
+
       await db.addPostToUser(createdBy, post)
-      res.status(201).json(post).redirect('/dashboard/posts')
+      res.status(201).redirect('/dashboard/posts')
     } catch (error) {
-      console.log(error)
       res
         .status(400)
         .send(error)
@@ -56,13 +58,15 @@ const postController = {
   },
   async updatePost(req, res) {
     try {
-      const { id } = req.params
+      const id = req.body.id;
       const updatedContent = req.body
       const post = await db.updatePost(id, updatedContent)
+
       if (!post) {
         return res.status(404).json({ error: 'Post não encontrado' })
       }
-      res.status(200).json(post)
+
+      res.status(200).redirect('/dashboard/posts');
     } catch (error) {
       res.status(400).json(error)
     }

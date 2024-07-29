@@ -38,30 +38,31 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="editForm" action="dashboard/posts/edit/{{id}}" method="POST" class="row g-3 needs-validation" validate>
+        <form id="editForm" action="dashboard/posts/edit" method="post" class="row g-3 needs-validation" validate>
+          <input type="hidden" name="id" id="editId">
           <div class="col-md-6">
             <label for="editTitle" class="form-label">Título</label>
-            <input type="text" class="form-control" id="editTitle" required>
+            <input type="text" class="form-control" id="editTitle" name='title' required>
             <div class="valid-feedback">Ok!</div>
           </div>
           <div class="col-md-6">
             <label for="editTitle" class="form-label">Descrição</label>
-            <input type="text" class="form-control" id="editDescription" required>
+            <input type="text" class="form-control" id="editDescription" name='description' required>
             <div class="valid-feedback">Ok!</div>
           </div>
           <div class="col-md-6">
             <label for="editPrice" class="form-label">Valor</label>
-            <input type="number" class="form-control" id="editPrice" required>
+            <input type="number" class="form-control" id="editPrice" name='price' required>
             <div class="valid-feedback">Ok!</div>
           </div>
           <div class="col-md-12">
             <label for="editAddress" class="form-label">Endereço</label>
-            <input type="text" class="form-control" id="editAddress" required>
+            <input type="text" class="form-control" id="editAddress" name='address' required>
             <div class="valid-feedback">Ok!</div>
           </div>
           <div class="col-md-12">
             <label for="createdBy" class="form-label">Criado Por</label>
-            <input type="email" class="form-control" id="createdBy" required>
+            <input type="email" class="form-control" id="createdBy" name='createdBy' required>
             <div class="valid-feedback">Ok!</div>
           </div>
           <div class="col-12">
@@ -87,6 +88,7 @@
             const itemData = data;
 
             // Preencher os campos do modal com os dados do item
+            document.getElementById("editId").value = itemData.id;
             document.getElementById("editTitle").value = itemData.title;
             document.getElementById("editDescription").value = itemData.description;
             document.getElementById("editPrice").value = itemData.price;
@@ -94,8 +96,8 @@
             document.getElementById("createdBy").value = itemData.createdBy;
 
             // Atualizar a ação do formulário com o ID do item
-            var form = document.getElementById('editForm');
-            form.action = '/dashboard/posts/edit/' + itemId;
+            //var form = document.getElementById('editForm');
+            //form.action = '/dashboard/posts/edit/' + itemId;
         } else {
             throw new Error("Resposta não é JSON");
         }

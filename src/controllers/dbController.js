@@ -121,16 +121,11 @@ const dbController = {
       if (user === -1) {
         throw new Error('Usuário não encontrado')
       }
-      const content = dbController.getJSON(DB_PATH)
-      content.then((users) => {
-        let list = users.map((user) => {
-          if (user.email === userEmail) {
-            list = user.posts
-          }
-          return list
-        })
+      const users = await dbController.getJSON(DB_PATH)
+      users.forEach((user) => {
+        users.posts = user.posts.filter((post) => post.createdBy === userEmail)
       })
-      return content
+      return users.posts
     } catch (error) {
       console.error('Erro ao buscar posts do usuário:', error)
       throw error
@@ -151,35 +146,26 @@ const dbController = {
       throw error
     }
   },
-  // TODO: Implementar a atualização de um post
   updatePost: async (postId, updatedContent) => {
     const users = await dbController.getJSON(DB_PATH)
-
     let postUpdated = false
 
-    const updatedUsers = users.map((user) => {
-      user.posts = user.posts.map((post) => {
+    users.forEach((user) => {
+      user.posts.forEach((post) => {
         if (post.id === postId) {
+          post.title = updatedContent.title
+          post.description = updatedContent.description
+          post.price = updatedContent.price
+          post.address = updatedContent.address
+          post.createdBy = updatedContent.createdBy
           postUpdated = true
-          return { ...post, ...updatedContent }
         }
-        return post
       })
-      return user
     })
 
-    if (!postUpdated) {
-      throw new Error('Post não encontrado')
-    }
-
-    await fs.promises.writeFile(
-      DB_PATH,
-      JSON.stringify(updatedUsers, null, 2),
-      'utf8'
-    )
-    return updatedUsers
-      .find((user) => user.posts.some((post) => post.id === postId))
-      .posts.find((post) => post.id === postId)
+    if (!postUpdated) throw new Error('Post não encontrado!')
+    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8')
+    return postUpdated
   },
 }
 
