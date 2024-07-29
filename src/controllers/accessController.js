@@ -11,7 +11,8 @@ const authenticateUser = async (email, password) => {
 }
 
 const changeUserCondition = (newCondition) => {
-  accessCondition = newCondition
+  const accessCondition = newCondition
+  return accessCondition
 }
 
 const accessController = {

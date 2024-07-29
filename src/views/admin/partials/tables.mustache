@@ -20,14 +20,10 @@
       <td>{{address}}</td>
       <td>{{createdBy}}</td>
       <td>
-        <button type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#caraio" data-id="{{id}}">
-          Editar
-        </button>
+        <button type="button" class="btn btn-primary edit-btn" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
       </td>
       <td>
-        <a class="btn btn-danger" href="#" role="button">
-          Excluir
-        </a>
+        <button type="button" class="btn btn-danger edit-btn" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#modalRemove">Excluir</button>
       </td>
     </tr>
     {{/data}}
