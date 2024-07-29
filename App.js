@@ -33,13 +33,13 @@ app.use(
 // Routers
 app.use('/', require('./src/routes/index'))
 
-//Error handler
-app.use(function (err, req, res) {
-  // set locals, only providing error in development
-  res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
-  // render the error page
-  res.status(err.status || 500)
-  res.render('error')
-})
+// //Error handler
+// app.use(function (err, req, res) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.query.res.locals.error =
+//     req.app.get('env') === 'development' ? err : {}
+//   // render the error page
+//   res.status(err.status || 500)
+//   res.render('error')
+// })
 module.exports = app

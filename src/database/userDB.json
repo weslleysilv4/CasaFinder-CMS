@@ -5,7 +5,7 @@
     "password": "blindfrog",
     "posts": [
       {
-        "id": 57690,
+        "id": "57690",
         "title": "Casa dos Crias",
         "description": "Casa legalzona, Casa legalzona, Casa legalzona, Casa legalzona, ",
         "price": "950",
@@ -23,67 +23,15 @@
     "password": "123456",
     "posts": [
       {
-        "id": 16866,
-        "title": "Casa Bonita",
+        "id": "164",
+        "title": "Casa Bonitonaaaz",
         "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
-        "price": "R$ 200,40",
-        "createdBy": "theo@mamae.com",
-        "createdAt": "27/07/2024",
-        "address": "123 Main St, City, Country",
-        "imgURL": "https://vgprojetos.com/wp-content/uploads/2022/09/P11-IMG-2.jpg.webp"
-      },
-      {
-        "id": 16866,
-        "title": "Casa Bonita",
-        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
-        "price": "R$ 200,40",
+        "price": "350,00",
         "createdBy": "theo@mamae.com",
         "createdAt": "27/07/2024",
         "address": "123 Main St, City, Country",
         "imgURL": "https://vgprojetos.com/wp-content/uploads/2022/09/P11-IMG-2.jpg.webp"
       }
     ]
-  },
-  {
-    "id": "8c162852-7d28-4dd8-a799-974005587823",
-    "username": "Theo Candido",
-    "email": "theo@candido.com",
-    "password": "theozinho",
-    "posts": []
-  },
-  {
-    "id": "cd3a6cc3-e5b9-4444-94b6-f9437699744c",
-    "username": "Theo Candido",
-    "email": "theo@candido1.com",
-    "password": "theozinho",
-    "posts": [
-      {
-        "id": 16866,
-        "title": "Casa Bonita",
-        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
-        "price": "R$ 200,40",
-        "createdBy": "theo@candido1.com",
-        "createdAt": "27/07/2024",
-        "address": "123 Main St, City, Country",
-        "imgURL": "https://vgprojetos.com/wp-content/uploads/2022/09/P11-IMG-2.jpg.webp"
-      },
-      {
-        "id": 16866,
-        "title": "Casa Bonita",
-        "description": "Uma casa bonita, 4 quartos, banheiro, sala cozinha, etc.",
-        "price": "R$ 200,40",
-        "createdBy": "theo@candido1.com",
-        "createdAt": "27/07/2024",
-        "address": "123 Main St, City, Country",
-        "imgURL": "https://vgprojetos.com/wp-content/uploads/2022/09/P11-IMG-2.jpg.webp"
-      }
-    ]
-  },
-  {
-    "id": "013da022-c584-42b5-a980-57be4d8e7ef5",
-    "username": "321321312",
-    "email": "32132131@mail.com",
-    "password": "31231321",
-    "posts": []
   }
 ]

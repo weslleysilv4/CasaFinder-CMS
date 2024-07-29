@@ -29,7 +29,15 @@ router.get('/dashboard/posts/new', Access.isAuthenticated, (req, res) => {
 router.post('/dashboard/posts/new', postController.createPost)
 router.get('/dashboard/posts', postController.getAllPosts)
 router.get('/dashboard/posts/:id', postController.getPostById)
-router.put('/dashboard/posts/edit/:id', postController.updatePost)
+router.put(
+  '/dashboard/posts/edit/:id',
+  postController.updatePost,
+  (req, res) => {
+    res.redirect('/dashboard/posts')
+  }
+)
+
+//TODO: Implementar a exclusão de um post
 router.delete('/dashboard/posts/remove/:id', postController.deletePost)
 
 module.exports = router

@@ -12,6 +12,7 @@ const dbController = {
       if (error) throw error
     })
   },
+  // Retorna o caminho do database
   getDB_PATH: () => {
     return DB_PATH
   },
@@ -20,7 +21,7 @@ const dbController = {
     const fileContent = fs.readFileSync(Path, 'utf-8')
     return JSON.parse(fileContent)
   },
-
+  // Retorna um Map com os dados do database
   getMap: async function (keyField, Path) {
     const jsonContent = await this.getJSON(Path)
     const map = new Map()
@@ -63,6 +64,19 @@ const dbController = {
     })
     return filteredContent
   },
+
+  // Busca todos os posts
+  findPosts: async () => {
+    try {
+      const users = await dbController.getJSON(DB_PATH)
+      const posts = users.flatMap((user) => user.posts)
+      return posts
+    } catch (error) {
+      console.error('Erro ao buscar posts:', error)
+      throw error
+    }
+  },
+  // Adiciona um post ao usuário
   addPostToUser: async (userEmail, post) => {
     try {
       const user = await dbController.getByEmail(userEmail, DB_PATH)
@@ -90,10 +104,11 @@ const dbController = {
       throw error
     }
   },
+
+  // Busca todos os posts
   getAllPosts: async () => {
     try {
-      const users = await dbController.getJSON(DB_PATH)
-      const list = users.map((user) => user.posts).flat()
+      const list = dbController.findPosts()
       return list
     } catch (error) {
       console.error('Erro ao buscar posts:', error)
@@ -108,18 +123,63 @@ const dbController = {
       }
       const content = dbController.getJSON(DB_PATH)
       content.then((users) => {
-        const list = users.map((user) => {
+        let list = users.map((user) => {
           if (user.email === userEmail) {
             list = user.posts
           }
           return list
         })
       })
-      return list
+      return content
     } catch (error) {
       console.error('Erro ao buscar posts do usuário:', error)
       throw error
     }
+  },
+  getPostById: async (id) => {
+    try {
+      const posts = await dbController.getJSON(DB_PATH)
+      const post = posts
+        .flatMap((user) => user.posts)
+        .find((post) => post.id === id)
+      if (!post) {
+        throw new Error('Post não encontrado')
+      }
+      return post
+    } catch (error) {
+      console.error('Erro ao buscar post por ID:', error)
+      throw error
+    }
+  },
+  // TODO: Implementar a atualização de um post
+  updatePost: async (postId, updatedContent) => {
+    const users = await dbController.getJSON(DB_PATH)
+
+    let postUpdated = false
+
+    const updatedUsers = users.map((user) => {
+      user.posts = user.posts.map((post) => {
+        if (post.id === postId) {
+          postUpdated = true
+          return { ...post, ...updatedContent }
+        }
+        return post
+      })
+      return user
+    })
+
+    if (!postUpdated) {
+      throw new Error('Post não encontrado')
+    }
+
+    await fs.promises.writeFile(
+      DB_PATH,
+      JSON.stringify(updatedUsers, null, 2),
+      'utf8'
+    )
+    return updatedUsers
+      .find((user) => user.posts.some((post) => post.id === postId))
+      .posts.find((post) => post.id === postId)
   },
 }
 

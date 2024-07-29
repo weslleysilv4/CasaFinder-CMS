@@ -45,7 +45,7 @@ const postController = {
   async getPostById(req, res) {
     try {
       const { id } = req.params
-      const post = await db.getById(id, DB_PATH)
+      const post = await db.getPostById(id)
       if (!post) {
         return res.status(404).json({ error: 'Post não encontrado' })
       }
@@ -58,7 +58,7 @@ const postController = {
     try {
       const { id } = req.params
       const updatedContent = req.body
-      const post = await db.updateInDB(id, updatedContent, DB_PATH)
+      const post = await db.updatePost(id, updatedContent)
       if (!post) {
         return res.status(404).json({ error: 'Post não encontrado' })
       }

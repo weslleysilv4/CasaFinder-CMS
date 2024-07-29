@@ -20,13 +20,103 @@
       <td>{{address}}</td>
       <td>{{createdBy}}</td>
       <td>
-        <button type="button" class="btn btn-primary edit-btn" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
+        <button type="button" class="btn btn-primary edit-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger edit-btn" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#modalRemove">Excluir</button>
+        <button type="button" class="btn btn-danger delete-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalDelete">Excluir</button>
       </td>
     </tr>
     {{/data}}
   </tbody>
   </table>
-  {{> admin/partials/modalEdit}}
+<!-- Modal de Edição -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Informações</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm" action="dashboard/posts/edit/{{id}}" method="POST" class="row g-3 needs-validation" validate>
+          <div class="col-md-6">
+            <label for="editTitle" class="form-label">Título</label>
+            <input type="text" class="form-control" id="editTitle" required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="editTitle" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="editDescription" required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="editPrice" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="editPrice" required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-12">
+            <label for="editAddress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="editAddress" required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-12">
+            <label for="createdBy" class="form-label">Criado Por</label>
+            <input type="email" class="form-control" id="createdBy" required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function loadEditModalData(itemId) {
+    try {
+        // Faz a requisição para obter os dados do item
+        const response = await fetch(`/dashboard/posts/${itemId}`);
+        
+        // Verifica se a resposta é JSON
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            const data = await response.json();
+            
+            // Supondo que a resposta é um array e você quer o primeiro item
+            const itemData = data;
+
+            console.log(itemData);
+
+            // Preencher os campos do modal com os dados do item
+            document.getElementById("editTitle").value = itemData.title;
+            document.getElementById("editDescription").value = itemData.description;
+            document.getElementById("editPrice").value = itemData.price;
+            document.getElementById("editAddress").value = itemData.address;
+            document.getElementById("createdBy").value = itemData.createdBy;
+
+            // Atualizar a ação do formulário com o ID do item
+            var form = document.getElementById('editForm');
+            form.action = '/dashboard/posts/edit/' + itemId;
+        } else {
+            throw new Error("Resposta não é JSON");
+        }
+    } catch (error) {
+        console.error('Erro ao carregar dados do modal:', error);
+    }
+}
+
+// Event listener para carregar os dados do item ao abrir o modal
+document.addEventListener('DOMContentLoaded', function () {
+    var editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var itemId = button.getAttribute('data-id');
+            loadEditModalData(itemId);
+        });
+    });
+});
+
+</script>
+
