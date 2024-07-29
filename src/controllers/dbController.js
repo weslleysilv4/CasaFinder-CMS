@@ -152,37 +152,33 @@ const dbController = {
     }
   },
   updatePost: async (postId, updatedContent) => {
-    const users = await dbController.getJSON(DB_PATH); 
-    let postUpdated = false;
+    const users = await dbController.getJSON(DB_PATH)
+    let postUpdated = false
 
-    users.forEach(user => {
-      user.posts.forEach(post => {
-        if(post.id === postId) {
-          post.title = updatedContent.title;
-          post.description = updatedContent.description;
-          post.price = updatedContent.price;
-          post.address = updatedContent.address;
-          post.createdBy = updatedContent.createdBy;
-          postUpdated = true;
-        } 
+    users.forEach((user) => {
+      user.posts.forEach((post) => {
+        if (post.id === postId) {
+          post.title = updatedContent.title
+          post.description = updatedContent.description
+          post.price = updatedContent.price
+          post.address = updatedContent.address
+          post.createdBy = updatedContent.createdBy
+          postUpdated = true
+        }
       })
-    });
+    })
 
-    if (!postUpdated) throw new Error('Post não encontrado!');
-    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8');
-    return postUpdated;
+    if (!postUpdated) throw new Error('Post não encontrado!')
+    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8')
+    return postUpdated
   },
   deletePost: async (postId) => {
-    try {
-      const users = await dbController.getJSON(DB_PATH);
-      users.forEach(user => {
-        user.posts = user.posts.filter(post => post.id !== postId);
-      })
-      fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf-8');
-    } catch (error) {
-      throw error;
-    }
-  }
+    const users = await dbController.getJSON(DB_PATH)
+    users.forEach((user) => {
+      user.posts = user.posts.filter((post) => post.id !== postId)
+    })
+    fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf-8')
+  },
 }
 
 module.exports = dbController
