@@ -73,9 +73,9 @@ const postController = {
   },
   async deletePost(req, res) {
     try {
-      const { id } = req.params
-      const posts = await db.deleteFromDB(id, DB_PATH)
-      res.status(200).json(posts)
+      const id = req.query.id
+      const posts = await db.deletePost(id, DB_PATH)
+      res.status(200).redirect('/dashboard/posts');
     } catch (error) {
       res.status(400).json(error)
     }

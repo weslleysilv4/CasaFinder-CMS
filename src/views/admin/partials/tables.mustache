@@ -23,7 +23,10 @@
         <button type="button" class="btn btn-primary edit-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
       </td>
       <td>
-        <button type="button" class="btn btn-danger delete-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalDelete">Excluir</button>
+        <form action="/dashboard/posts/remove?_method=DELETE&id={{id}}" method="POST">
+          <input type="hidden" name="id" value="{{id}}"/>
+          <button class="btn btn-danger delete-btn" type="submit">Excluir</button>
+        </form>
       </td>
     </tr>
     {{/data}}
