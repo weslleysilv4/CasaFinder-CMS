@@ -162,7 +162,6 @@ const dbController = {
         }
       })
     })
-
     if (!postUpdated) throw new Error('Post não encontrado!')
     fs.writeFileSync(DB_PATH, JSON.stringify(users, null, 2), 'utf8')
     return postUpdated
