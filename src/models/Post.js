@@ -8,6 +8,7 @@ module.exports = class Post {
   _address
   _imgURL
   _markdown
+  _url
 
   constructor(Post) {
     this._id = this.calculateId()
@@ -22,6 +23,7 @@ module.exports = class Post {
     this._address = Post.address
     this._imgURL = Post.imgURL
     this._markdown = Post.markdown
+    this._url = Post.url 
   }
 
   get id() {
@@ -50,6 +52,9 @@ module.exports = class Post {
   }
   get markdown() {
     return this._markdown
+  }
+  get url() { 
+    return this._url
   }
 
   calculateId() {
@@ -84,7 +89,8 @@ module.exports = class Post {
       createdAt: this.createdAt,
       address: this.address,
       imgURL: this.imgURL,
-      markdown: this.markdown
+      markdown: this.markdown,
+      url: this.url 
     }
   }
 }
