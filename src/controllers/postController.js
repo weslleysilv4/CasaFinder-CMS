@@ -6,7 +6,7 @@ const { createPostValidator } = require('../validator/validationSchemas')
 const postController = {
   async createPost(req, res) {
     try {
-      const { title, description, price, address, imgURL } = req.body
+      const { title, description, price, address, imgURL, markdown } = req.body
       const { error } = createPostValidator.validate(req.body)
 
       const createdBy = req.session.user ? req.session.user.email : null
@@ -24,6 +24,7 @@ const postController = {
         createdBy,
         address,
         imgURL,
+        markdown
       })
 
       await db.addPostToUser(createdBy, post)

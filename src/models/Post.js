@@ -7,6 +7,7 @@ module.exports = class Post {
   _createdAt
   _address
   _imgURL
+  _markdown
 
   constructor(Post) {
     this._id = this.calculateId()
@@ -20,6 +21,7 @@ module.exports = class Post {
     this._createdAt = this.DataFormat(new Date())
     this._address = Post.address
     this._imgURL = Post.imgURL
+    this._markdown = Post.markdown
   }
 
   get id() {
@@ -46,10 +48,14 @@ module.exports = class Post {
   get imgURL() {
     return this._imgURL
   }
+  get markdown() {
+    return this._markdown
+  }
 
   calculateId() {
     return (Math.floor(Math.random() * 90000) + 10000).toString()
   }
+
   PriceFormat() {
     return this._price.toLocaleString('pt-BR', {
       style: 'currency',
@@ -58,15 +64,16 @@ module.exports = class Post {
   }
 
   DataFormat(data) {
-    let dia = data.getDate()
-    let mes = data.getMonth() + 1
-    const ano = data.getFullYear()
+    let D = data.getDate()
+    let M = data.getMonth() + 1
+    const Y = data.getFullYear()
 
-    if (dia < 10) dia = `"0" + ${dia}`
-    if (mes < 10) mes = `"0" + ${mes}`
+    if (D < 10) D = `"0" + ${D}`
+    if (M < 10) M = `"0" + ${M}`
 
-    return `${dia} + "/" + ${mes} + "/" + ${ano}`
+    return `${D} + "/" + ${M} + "/" + ${Y}`
   }
+
   toJSON() {
     return {
       id: this.id,
@@ -77,6 +84,7 @@ module.exports = class Post {
       createdAt: this.createdAt,
       address: this.address,
       imgURL: this.imgURL,
+      markdown: this.markdown
     }
   }
 }
