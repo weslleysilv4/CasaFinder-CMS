@@ -16,6 +16,7 @@ const createPostValidator = Joi.object({
   price: Joi.number().positive().required(),
   address: Joi.string().min(5).required(),
   imgURL: Joi.string().uri().optional(),
+  markdown: Joi.string().min(10).required()
 })
 
 module.exports = {

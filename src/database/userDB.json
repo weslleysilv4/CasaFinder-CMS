@@ -12,17 +12,30 @@
         "createdBy": "admin@frog.com",
         "createdAt": "27/07/2024",
         "address": "Rua Tchuros Bangus, tudos bangus",
-        "imgURL": "https://i.pinimg.com/736x/23/d1/dc/23d1dcbe633b450c1f27d286255c3ab8.jpg"
+        "imgURL": "https://i.pinimg.com/736x/23/d1/dc/23d1dcbe633b450c1f27d286255c3ab8.jpg",
+        "markdown": "# Hiper House\r\n## Super oferta!"
       },
       {
-        "id": "91097",
-        "title": "2312313",
-        "description": "3213123wqeqw",
-        "price": "3123213",
+        "id": "91701",
+        "title": "Super MARK",
+        "description": "Casa Grande, 4 Quartos",
+        "price": "750",
         "createdBy": "admin@frog.com",
-        "createdAt": "29 + \"/\" + \"0\" + 7 + \"/\" + 2024",
-        "address": "wqewqeqwewq",
-        "imgURL": "https://img.freepik.com/fotos-gratis/villa-com-piscina-de-luxo-espetacular-design-contemporaneo-arte-digital-imoveis-casa-casa-e-propriedade-ge_1258-150749.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722211200&semt=sph"
+        "createdAt": "30 + \"/\" + \"0\" + 7 + \"/\" + 2024",
+        "address": "R. A 112",
+        "imgURL": "https://i.pinimg.com/originals/45/5c/4f/455c4f8e29fc0e25afd93bbb3fa7fb20.jpg",
+        "markdown": "# Super casa"
+      },
+      {
+        "id": "71193",
+        "title": "Super MD House",
+        "description": "Casa Grande, 4 Quartos",
+        "price": "750",
+        "createdBy": "admin@frog.com",
+        "createdAt": "30 + \"/\" + \"0\" + 7 + \"/\" + 2024",
+        "address": "R. A 112",
+        "imgURL": "https://i.pinimg.com/originals/45/5c/4f/455c4f8e29fc0e25afd93bbb3fa7fb20.jpg",
+        "markdown": "# Super House MD\r\n\r\n![Super House Logo](https://via.placeholder.com/150)\r\n\r\n## Bem-vindo à Super House MD!\r\n\r\nEstamos entusiasmados em anunciar o lançamento da **Super House MD**, a casa dos seus sonhos, onde luxo e conforto se encontram em perfeita harmonia.\r\n\r\n### Características da Super House MD\r\n\r\n- **Localização**: Situada no coração da cidade, com fácil acesso a todas as comodidades.\r\n- **Área Total**: 450m²\r\n- **Quartos**: 4 suítes espaçosas\r\n- **Banheiros**: 5 banheiros modernos\r\n- **Cozinha Gourmet**: Totalmente equipada com eletrodomésticos de última geração.\r\n- **Sala de Estar**: Ampla e bem iluminada, perfeita para receber convidados.\r\n- **Jardim**: Um belo jardim paisagístico, ideal para relaxar e desfrutar do ar livre.\r\n- **Piscina**: Uma piscina de borda infinita com vista deslumbrante.\r\n\r\n### Galeria de Imagens\r\n\r\n![Vista Externa](https://via.placeholder.com/600x400)\r\n*Legenda: Vista externa da Super House MD*\r\n\r\n![Sala de Estar](https://via.placeholder.com/600x400)\r\n*Legenda: Sala de estar espaçosa e elegante*\r\n\r\n![Cozinha Gourmet](https://via.placeholder.com/600x400)\r\n*Legenda: Cozinha gourmet com design moderno*\r\n\r\n![Quarto Principal](https://via.placeholder.com/600x400)\r\n*Legenda: Quarto principal com decoração sofisticada*\r\n\r\n![Piscina](https://via.placeholder.com/600x400)\r\n*Legenda: Piscina de borda infinita*\r\n\r\n### Depoimentos de Clientes\r\n\r\n> \"A Super House MD superou todas as nossas expectativas. O design é impecável e o conforto é inigualável!\"  \r\n> – **João e Maria Silva**\r\n\r\n> \"Desde o primeiro momento que vimos a Super House MD, sabíamos que era a nossa casa dos sonhos.\"  \r\n> – **Carlos e Ana Pereira**\r\n\r\n### Contato\r\n\r\nPara mais informações ou para agendar uma visita, entre em contato conosco:\r\n\r\n- **Telefone**: (11) 1234-5678\r\n- **Email**: [contato@superhousemd.com](mailto:contato@superhousemd.com)\r\n- **Endereço**: Rua dos Sonhos, 123, Cidade Maravilhosa\r\n\r\n### Redes Sociais\r\n\r\nSiga-nos nas redes sociais para ficar por dentro das novidades e eventos:\r\n\r\n- [Facebook](https://facebook.com/superhousemd)\r\n- [Instagram](https://instagram.com/superhousemd)\r\n- [Twitter](https://twitter.com/superhousemd)\r\n\r\n---\r\n\r\n**Super House MD**  \r\nOnde seus sonhos se tornam realidade!\r\n\r\n"
       }
     ]
   },
@@ -31,6 +44,13 @@
     "username": "Weslley Dog",
     "email": "theo@mamae.com",
     "password": "123456",
+    "posts": []
+  },
+  {
+    "id": "a5aae90d-62d1-4e1f-b735-e71672bc6c09",
+    "username": "user",
+    "email": "user@gmail.com",
+    "password": "1234",
     "posts": []
   }
 ]

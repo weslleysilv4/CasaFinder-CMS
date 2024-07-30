@@ -82,7 +82,23 @@
         </div>
       </div>
     </section>
+    <!-- Markdown section-->
+    {{#markdown}}
+    <section class="py-5 bg-light">
+      <div class="container px-4 px-lg-5 mt-5" id='mdContent' data-id="{{id}}">
+      <script type="module">
+        import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+        document.addEventListener('DOMContentLoaded', () => {
+          const mdSection = document.getElementById("mdContent") 
+          mdSection.innerHTML = marked.parse(`{{markdown}}`);
+        });
+      </script>
+     </div>
+    </section>
+    {{/markdown}}
     {{/post}}
+
+
     <!-- Related items section-->
     <section class="py-5 bg-light">
       <div class="container px-4 px-lg-5 mt-5">
@@ -122,4 +138,5 @@
         </div>
       </div>
     </section>
+
 </body>

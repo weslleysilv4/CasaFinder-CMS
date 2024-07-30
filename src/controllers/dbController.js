@@ -158,6 +158,7 @@ const dbController = {
           post.price = updatedContent.price
           post.address = updatedContent.address
           post.createdBy = updatedContent.createdBy
+          post.markdown = updatedContent.markdown
           postUpdated = true
         }
       })
