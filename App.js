@@ -1,49 +1,46 @@
 //Requires gerais
-const path = require("path")
-require("dotenv").config()
-const indexRouter = require('./src/routes/index');
-const loginRouter = require('./src/routes/login');
-const adminRouter = require('./src/routes/admin');
-const signUpRouter = require('./src/routes/signup')
+const path = require('path')
+require('dotenv').config()
+const methodOverride = require('method-override')
 
 //Express
 const express = require('express')
 const app = express()
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
 
 //Template
-var mustacheExpress = require("mustache-express");
+var mustacheExpress = require('mustache-express')
 var engine = mustacheExpress()
-app.engine("mustache", engine);
-app.set("views", path.join(__dirname, "src/views"));
-app.set("view engine", "mustache");
+app.engine('mustache', engine)
+app.set('views', path.join(__dirname, 'src/views'))
+app.set('view engine', 'mustache')
 
 //Cookies
-const cookieParser = require("cookie-parser")
+const cookieParser = require('cookie-parser')
 app.use(cookieParser())
 
 //Sessão
-const session = require("express-session");
-app.use(session({
+const session = require('express-session')
+app.use(
+  session({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false
-}));
+    saveUninitialized: false,
+  })
+)
+// Routers
+app.use('/', require('./src/routes/index'))
 
-app.use("/", indexRouter);
-app.use("/", adminRouter);
-app.use("/", loginRouter);
-app.use("/", signUpRouter);
-
-//Error handler
-app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
-module.exports = app;
+// //Error handler
+// app.use(function (err, req, res) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.query.res.locals.error =
+//     req.app.get('env') === 'development' ? err : {}
+//   // render the error page
+//   res.status(err.status || 500)
+//   res.render('error')
+// })
+module.exports = app

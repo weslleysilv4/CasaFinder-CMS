@@ -43,5 +43,3 @@ Bem-vindo ao nosso projeto de CMS Dinâmico! Esta poderosa ferramenta permite a 
   - **Exemplos**: Customização visual, upload de imagens, comentários, classificação de páginas, múltiplos administradores, uso de tags nas páginas, categorias de páginas, etc.
 
 ---
-
-

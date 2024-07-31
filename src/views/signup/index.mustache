@@ -2,7 +2,7 @@
 <body class="d-flex align-items-center min-vw-100 min-vh-100 bg-dark bg-secondary">
 
   <main class="form-signin m-auto w-25">
-    <form action="/cadastrar" method="POST" validate>
+    <form action="/register" method="POST" validate>
       <div class="container-md-auto d-flex justify-content-center align-items-center gap-2">
         {{! Logo }}
         <img class="mb-4" src="assets/logo/frog-logo.svg" alt="Logo Image" width="72" height="57">
@@ -11,20 +11,8 @@
 
       {{! Nome }}
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="name" id="floatingName" placeholder="Nome" required>
+        <input type="text" class="form-control" name="username" id="floatingName" placeholder="Nome" required>
         <label for="floatingName">Nome</label>
-      </div>
-
-      {{! Sobrenome }}
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="surname" id="floatingSurname" placeholder="surname" required>
-        <label for="floatingSurname">Sobrenome</label>
-      </div>
-      
-      {{! Username }}
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="username" id="floatingUsername" placeholder="username" required>
-        <label for="floatingUsername">Username</label>
       </div>
       
       {{! Email }}
@@ -49,7 +37,11 @@
         </label>
         <a href="/login">Já possuo uma Conta!</a>
       </div>
-
+      {{#error}}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+      {{/error}}
       {{! Sign in button }}
       <button class="btn btn-success w-100 py-2" type="submit">Sign Up</button>
       <p class="mt-5 mb-3 text-center text-body-secondary">© 2017–2024</p>

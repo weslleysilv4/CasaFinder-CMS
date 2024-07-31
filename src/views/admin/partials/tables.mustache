@@ -11,29 +11,26 @@
     </tr>
   </thead>
   <tbody class="data">
+    {{#data}}
     <tr>
-      <th scope="row">1</th>
-      <td><img src="../assets/logo/frog-logo.png" alt="logo" style="max-width: 40px;"></td>
-      <td>Casa Grande</td>
-      <td>R$ 900,00</td>
-      <td>Rua Turus Bangos, tudus bango</td>
-      <td>Alek</td>
+      <th scope="row">{{id}}</th>
+      <td><img src="{{imgURL}}" alt="logo" style="max-width: 40px;"></td>
+      <td>{{title}}</td>
+      <td>{{price}}</td>
+      <td>{{address}}</td>
+      <td>{{createdBy}}</td>
       <td>
-        <button type="button" class="btn btn-primary edit-btn" data-bs-toggle="modal" data-bs-target="#caraio" data-id="{{id}}">
-          Editar
-        </button>
+        <button type="button" class="btn btn-primary edit-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalEdit">Editar</button>
       </td>
       <td>
-        <a class="btn btn-danger" href="#" role="button">
-          Excluir
-        </a>
+        <button type="button" class="btn btn-danger delete-btn" data-id="{{{id}}}" data-bs-toggle="modal" data-bs-target="#modalRemove">Excluir</button>
       </td>
     </tr>
+    {{/data}}
   </tbody>
   </table>
-
-<!-- Modal -->
-<div class="modal fade" id="caraio" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<!-- Modal de Edição -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,72 +38,38 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="/admin/criar-anuncio" class="row g-3 needs-validation" method="POST" validate>
-          <div class="col-md-4">
-            <label for="editValidationCustom01" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="editValidationCustom01" value="Alek" required>
+        <form id="editForm" action="dashboard/posts/edit" method="post" class="row g-3 needs-validation" validate>
+          <input type="hidden" name="id" id="editId">
+          <div class="col-md-6">
+            <label for="editTitle" class="form-label">Título</label>
+            <input type="text" class="form-control" id="editTitle" name='title' required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="editTitle" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="editDescription" name='description' required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-6">
+            <label for="editPrice" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="editPrice" name='price' required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-12">
+            <label for="editAddress" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="editAddress" name='address' required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="col-md-12">
+            <label for="createdBy" class="form-label">Criado Por</label>
+            <input type="email" class="form-control" id="createdBy" name='createdBy' required>
+            <div class="valid-feedback">Ok!</div>
+          </div>
+          <div class="w-100">
+            <label for="validationCustom01" class="form-label">Conteúdo da Página (markdown)</label>
+            <textarea type="text" wrap rows="10" class="form-control" id="mdContent" name="markdown" required></textarea>
             <div class="valid-feedback">
-              Ok!
-            </div>
-          </div>
-          <div class="col-md-4">
-            <label for="editValidationCustom02" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="editValidationCustom02" value="Silva" required>
-            <div class="valid-feedback">
-              Ok!
-            </div>
-          </div>
-          <div class="col-md-4">
-            <label for="editValidationCustomUsername" class="form-label">Username</label>
-            <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend">@</span>
-              <input type="text" class="form-control" id="editValidationCustomUsername" aria-describedby="inputGroupPrepend" required>
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="editValidationCustom03" class="form-label">Cidade</label>
-            <input type="text" class="form-control" id="editValidationCustom03" required>
-            <div class="invalid-feedback">
-              Por favor, insira uma cidade válida.
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="editValidationCustom06" class="form-label">Valor</label>
-            <input type="number" class="form-control" id="editValidationCustom06" required>
-            <div class="invalid-feedback">
-              Por favor, insira um valor válido.
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="editValidationCustom04" class="form-label">Estado</label>
-            <select class="form-select" id="editValidationCustom04" required>
-              <option selected disabled value="">Escolha...</option>
-              <option>PR</option>
-              <option>SP</option>
-            </select>
-            <div class="invalid-feedback">
-              Por favor, selecione um Estado.
-            </div>
-          </div>
-          <div class="col-md-3">
-            <label for="editValidationCustom05" class="form-label">CEP</label>
-            <input type="text" class="form-control" id="editValidationCustom05" required>
-            <div class="invalid-feedback">
-              Por favor, insira um CEP válido.
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="editInvalidCheck" required>
-              <label class="form-check-label" for="editInvalidCheck">
-                Concorda com os termos e condições
-              </label>
-              <div class="invalid-feedback">
-                Você precisa concordar para dar continuidade.
-              </div>
+              Looks good!
             </div>
           </div>
           <div class="col-12">
@@ -118,43 +81,83 @@
   </div>
 </div>
 
+<!-- Modal de Remoção -->
+<div class="modal fade" id="modalRemove" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="removeModalLabel">Remover Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja remover este item?</p>
+        <form action="/dashboard/posts/remove?_method=DELETE&id={{id}}" id="deleteForm" method="POST">
+          <input type="hidden" id="removeId" name="id" value="{{id}}"/>
+          <button class="btn btn-danger delete-btn" id='delete-btn-modal' type="submit">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-  // Função para carregar os dados do item a ser editado no modal
-  function loadEditModalData(itemId) {
-    // Aqui você pode usar AJAX para buscar os dados do item com base no ID
-    // e preencher os campos do modal com os dados correspondentes
+  async function loadEditModalData(itemId) {
+    try {
+        // Faz a requisição para obter os dados do item
+        const response = await fetch(`/dashboard/posts/${itemId}`);
+        
+        // Verifica se a resposta é JSON
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            const data = await response.json();
+            
+            const itemData = data;
 
-    // Exemplo:
-    var itemData = {
-      nome: "Nome do Item",
-      sobrenome: "Sobrenome do Item",
-      username: "Username do Item",
-      cidade: "Cidade do Item",
-      valor: 900,
-      estado: "PR",
-      cep: "12345-678",
-      concorda: true
-    };
+            // Preencher os campos do modal com os dados do item
+            document.getElementById("editId").value = itemData.id;
+            document.getElementById("editTitle").value = itemData.title;
+            document.getElementById("editDescription").value = itemData.description;
+            document.getElementById("editPrice").value = itemData.price;
+            document.getElementById("editAddress").value = itemData.address;
+            document.getElementById("createdBy").value = itemData.createdBy;
+            document.getElementById("mdContent").value = itemData.markdown;
 
-    // Preencher os campos do modal com os dados do item
-    document.getElementById("editValidationCustom01").value = itemData.nome;
-    document.getElementById("editValidationCustom02").value = itemData.sobrenome;
-    document.getElementById("editValidationCustomUsername").value = itemData.username;
-    document.getElementById("editValidationCustom03").value = itemData.cidade;
-    document.getElementById("editValidationCustom06").value = itemData.valor;
-    document.getElementById("editValidationCustom04").value = itemData.estado;
-    document.getElementById("editValidationCustom05").value = itemData.cep;
-    document.getElementById("editInvalidCheck").checked = itemData.concorda;
+            // Atualizar a ação do formulário com o ID do item
+            //var form = document.getElementById('editForm');
+            //form.action = '/dashboard/posts/edit/' + itemId;
+        } else {
+            throw new Error("Resposta não é JSON");
+        }
+    } catch (error) {
+        console.error('Erro ao carregar dados do modal:', error);
+    }
+  }
+  function loadDeleteId(itemId) {
+    document.getElementById("removeId").value = itemId;
+    document.getElementById("deleteForm").setAttribute("action", `/dashboard/posts/remove?_method=DELETE&id=${itemId}`)
   }
 
-  // Event listener para carregar os dados do item ao abrir o modal
-  document.addEventListener('DOMContentLoaded', function () {
+// Event listener para carregar os dados do item ao abrir o modal
+document.addEventListener('DOMContentLoaded', function () {
     var editButtons = document.querySelectorAll('.edit-btn');
     editButtons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        var itemId = button.getAttribute('data-id');
-        loadEditModalData(itemId);
-      });
+        button.addEventListener('click', function () {
+            var itemId = button.getAttribute('data-id');
+            loadEditModalData(itemId);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.getAttribute("id")) return;
+      const itemId = button.getAttribute('data-id');
+      console.log(itemId);
+      loadDeleteId(itemId);
     });
   });
+});
+
 </script>
+

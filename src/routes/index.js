@@ -1,24 +1,29 @@
-const express = require('express')
-const router = express.Router()
-const Acess = require("../controllers/acessController");
+const router = require('express').Router()
+const db = require('../controllers/dbController')
+const userRouter = require('./users')
+const loginRouter = require('./login')
+const postsRouter = require('./posts')
+const productRouter = require('./product')
 
-router.get("/", (req, res) => {
-    res.render("home/index", {
-        loginButton: Acess.isLogged() ? "hidden" : "",
-        dashboard: Acess.isAdmin(req.session.user) ? "" : "hidden"
-    }); 
+router.use('/', productRouter)
+router.use('/', userRouter)
+router.use('/', loginRouter)
+router.use('/', postsRouter)
+
+router.get('/', async (req, res, next) => {
+  try {
+    const data = await db.getAllPosts()
+    res.render('home/index', {
+      loginButton: req.session.user ? 'hidden' : '',
+      logoutButton: req.session.user ? '' : 'hidden',
+      dashboard: req.session.user ? '' : 'hidden',
+      isAuthenticated: req.session.user ? true : false,
+      data: data,
+    })
+  } catch (error) {
+    console.error('Erro ao buscar posts:', error)
+    next(error)
+  }
 })
 
-router.get("/login", (req, res) => {
-    // Verificação se o usuário já estiver logado, vai renderizar o dashboard.
-    if(!Acess.isLogged()){
-        return res.render("login/index")
-    }
-    res.redirect("/admin")
-})
-
-router.get("/cadastro", (req, res) => {
-    res.render("signup/index");
-});
-
-module.exports = router;
+module.exports = router
