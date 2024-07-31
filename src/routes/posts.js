@@ -33,7 +33,6 @@ router.get('/dashboard/posts/:id', postController.getPostById)
 
 router.post('/dashboard/posts/edit', postController.updatePost)
 
-//TODO: Implementar a exclusão de um post
 router.delete('/dashboard/posts/remove/', postController.deletePost)
 
 module.exports = router

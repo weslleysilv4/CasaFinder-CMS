@@ -6,8 +6,9 @@ const { createPostValidator } = require('../validator/validationSchemas');
 const postController = {
   async createPost(req, res) {
     try {
-      const { title, description, price, address, imgURL, markdown, url } = req.body; // Adicionado url
+      const { title, description, price, address, imgURL, markdown, url } = req.body; 
       const { error } = createPostValidator.validate(req.body);
+      const posts = await db.getAllPosts();
 
       const createdBy = req.session.user ? req.session.user.email : null;
 
@@ -17,6 +18,10 @@ const postController = {
           .redirect('/dashboard/posts/new', { error: error.message });
       }
 
+      posts.forEach(post => {
+        if (post.url === url) return res.status(400).redirect('/dashboard/posts/new', {error: 'Url já utilizada'})
+      })
+
       const post = new Post({
         title,
         description,
@@ -25,7 +30,7 @@ const postController = {
         address,
         imgURL,
         markdown,
-        url // Adicionado url
+        url 
       });
 
       await db.addPostToUser(createdBy, post);
