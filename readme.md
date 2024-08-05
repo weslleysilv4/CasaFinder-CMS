@@ -57,28 +57,28 @@ O desafio incluiu as seguintes etapas:
 Para rodar o projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/weslleysilv4/cms-casafinder.git
-   ```
+```bash
+git clone https://github.com/weslleysilv4/cms-casafinder.git
+```
 2. Navegue até o diretório do projeto:
-  ```bash
-  cd /cms-casafinder
-  ```
+```bash
+cd /cms-casafinder
+```
 3. Instale as dependências:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 5. Configure o arquivo .env com as variáveis necessárias (exemplo abaixo):
-  ```bash
-  ADMIN_USERNAME=seu_usuario
-  ADMIN_PASSWORD=sua_senha
-  ```
+```bash
+ADMIN_USERNAME=seu_usuario
+ADMIN_PASSWORD=sua_senha
+```
 
 5. Inicie o servidor:
-  ```bash
-  npm start
-  ```
+```bash
+npm start
+```
 6. Acesse o sistema em `http://localhost:3000`.
 
 ## ✍️ Team <a name = "team"></a>
